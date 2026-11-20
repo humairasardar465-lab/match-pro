@@ -1,0 +1,2356 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Match Pro | Verified Identity, Trusted Matrimony — Created by Humaira Sardar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            maroon: {
+              DEFAULT: '#5B0E2D',
+              dark: '#3D081D',
+              light: '#7A163E',
+              soft: '#F8EEF2'
+            },
+            gold: {
+              DEFAULT: '#C59B27',
+              dark: '#A37D18',
+              light: '#F3E5AB',
+              soft: '#FCF9EE'
+            },
+            ivory: {
+              DEFAULT: '#FAF7F2',
+              card: '#FFFFFF',
+              border: '#E6DDD0'
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FAF7F2;
+      color: #1C1618;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    .brand-serif {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    @keyframes scanBeam {
+      0% { top: 8%; opacity: 0.4; }
+      50% { top: 88%; opacity: 1; }
+      100% { top: 8%; opacity: 0.4; }
+    }
+    .scanner-beam {
+      position: absolute;
+      left: 4%;
+      right: 4%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #C59B27, #10B981, #C59B27, transparent);
+      box-shadow: 0 0 12px #C59B27, 0 0 20px #10B981;
+      animation: scanBeam 1.8s ease-in-out infinite;
+    }
+    *:focus-visible {
+      outline: 3px solid #C59B27 !important;
+      outline-offset: 2px !important;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #C59B27;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-maroon selection:text-white">
+
+  <!-- Skip Link for Screen Readers -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-maroon focus:text-white focus:px-4 focus:py-2 focus:rounded-xl focus:shadow-lg">
+    Skip to main content
+  </a>
+
+  <!-- Header with Brand Name "Match Pro" at Top and Spoken Voice Language Selector -->
+  <header class="sticky top-0 z-40 bg-ivory/95 backdrop-blur-md border-b border-ivory-border shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap items-center justify-between gap-3 py-3.5 min-h-20">
+        <!-- Brand Name at Top -->
+        <button type="button" onclick="handleBrandHeaderClick()" class="flex items-center gap-3 text-left group rounded-xl p-1" aria-label="Match Pro">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-maroon to-maroon-dark border-2 border-gold flex items-center justify-center shadow-md group-hover:scale-105 transition shrink-0">
+            <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+            </svg>
+          </div>
+          <span class="brand-serif text-2xl sm:text-3xl font-extrabold text-maroon tracking-tight leading-none">
+            Match Pro
+          </span>
+        </button>
+
+        <!-- Multilingual Spoken Language Selector & Voice Guide Toggle -->
+        <div class="flex flex-wrap items-center gap-2">
+          <label for="spoken-language-select" class="sr-only">Spoken Voice Language</label>
+          <select
+            id="spoken-language-select"
+            onchange="onSpokenLanguageChange(this.value)"
+            aria-label="Choose spoken voice language for reading aloud and voice listening"
+            class="rounded-xl bg-white border-2 border-gold text-maroon-dark font-bold text-xs sm:text-sm px-3 py-2.5 cursor-pointer"
+          >
+            <option value="en-US">🗣️ English (en-US)</option>
+            <option value="ur-PK">🗣️ اردو — Urdu (ur-PK)</option>
+            <option value="hi-IN">🗣️ हिन्दी — Hindi (hi-IN)</option>
+            <option value="ar-SA">🗣️ العربية — Arabic (ar-SA)</option>
+            <option value="en-GB">🗣️ English UK (en-GB)</option>
+          </select>
+
+          <button type="button" id="voice-guide-toggle" onclick="toggleVoiceGuide()" aria-pressed="true" class="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-maroon-dark font-extrabold text-xs sm:text-sm px-3.5 py-2.5 rounded-xl shadow-sm transition">
+            <span aria-hidden="true">🔊</span>
+            <span id="voice-guide-label">Voice: On</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Live Screen-Reader & Visual Toast Notification -->
+  <div id="live-toast" role="status" aria-live="polite" class="fixed bottom-5 right-5 left-5 sm:left-auto sm:right-6 sm:max-w-md z-50 hidden transition-all duration-300">
+    <div class="bg-maroon-dark text-white border-2 border-gold rounded-2xl p-4 shadow-2xl flex items-start gap-3">
+      <div class="w-8 h-8 rounded-full bg-gold/20 text-gold flex items-center justify-center shrink-0 mt-0.5">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+      <div class="flex-1 text-sm">
+        <p id="toast-title" class="font-bold text-gold"></p>
+        <p id="toast-message" class="text-ivory/90 mt-0.5 leading-relaxed"></p>
+      </div>
+      <button type="button" onclick="hideToast()" class="text-ivory/70 hover:text-white p-1 rounded-lg" aria-label="Close notification">✕</button>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content" class="flex-1">
+
+    <!-- ==================== 0. INITIAL SIGN UP / ID VERIFICATION & LOGIN SCREEN ==================== -->
+    <section id="page-signup" aria-labelledby="signup-heading" class="page-section py-8 sm:py-12">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-gold shadow-lg flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="space-y-1.5">
+            <span class="inline-block text-xs font-extrabold uppercase tracking-wider text-gold-dark bg-gold-soft border border-gold/40 px-3.5 py-1 rounded-full">
+              Step 1 Entry — ID Scan, Mobile Verification &amp; Disability Details
+            </span>
+            <h1 id="signup-heading" class="brand-serif text-2xl sm:text-4xl font-bold text-maroon">
+              Sign Up &amp; ID Verification Login
+            </h1>
+            <p class="text-xs sm:text-sm text-stone-600 max-w-2xl">
+              Scan your National ID card, verify your mobile number, specify your disability and desired partner disability, and complete sign-up to enter the Home page.
+            </p>
+          </div>
+
+          <div class="flex flex-col sm:items-end gap-2 shrink-0">
+            <button type="button" onclick="speakSignupPrompt()" class="bg-maroon hover:bg-maroon-light text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow transition">
+              🔊 Listen in Selected Language
+            </button>
+            <button type="button" onclick="enterHomeAsVerifiedOrDemo()" class="bg-gold hover:bg-gold-dark text-maroon-dark font-extrabold text-xs px-4 py-2 rounded-xl transition">
+              Complete Sign Up &amp; Enter Home →
+            </button>
+          </div>
+        </div>
+
+        <!-- 4-Step Verification & Profile Setup Tabs -->
+        <div role="tablist" aria-label="Sign Up and Verification Steps" class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 bg-white p-2.5 rounded-2xl border border-ivory-border shadow-sm">
+          <button type="button" id="step-tab-1" role="tab" aria-selected="true" onclick="goToStep(1)" class="step-tab flex items-center justify-center gap-2 py-3 px-2 rounded-xl font-bold text-xs sm:text-sm transition bg-maroon text-white">
+            <span class="w-6 h-6 rounded-full bg-gold text-maroon-dark flex items-center justify-center text-xs font-extrabold shrink-0">1</span>
+            <span>ID &amp; Mobile</span>
+          </button>
+          <button type="button" id="step-tab-2" role="tab" aria-selected="false" onclick="goToStep(2)" class="step-tab flex items-center justify-center gap-2 py-3 px-2 rounded-xl font-bold text-xs sm:text-sm transition text-stone-600 hover:bg-maroon-soft">
+            <span class="w-6 h-6 rounded-full bg-stone-200 text-stone-700 flex items-center justify-center text-xs font-extrabold shrink-0">2</span>
+            <span>Job &amp; Salary</span>
+          </button>
+          <button type="button" id="step-tab-3" role="tab" aria-selected="false" onclick="goToStep(3)" class="step-tab flex items-center justify-center gap-2 py-3 px-2 rounded-xl font-bold text-xs sm:text-sm transition text-stone-600 hover:bg-maroon-soft">
+            <span class="w-6 h-6 rounded-full bg-stone-200 text-stone-700 flex items-center justify-center text-xs font-extrabold shrink-0">3</span>
+            <span>Family &amp; Assets</span>
+          </button>
+          <button type="button" id="step-tab-4" role="tab" aria-selected="false" onclick="goToStep(4)" class="step-tab flex items-center justify-center gap-2 py-3 px-2 rounded-xl font-bold text-xs sm:text-sm transition text-stone-600 hover:bg-maroon-soft">
+            <span class="w-6 h-6 rounded-full bg-stone-200 text-stone-700 flex items-center justify-center text-xs font-extrabold shrink-0">4</span>
+            <span>Fee &amp; Login</span>
+          </button>
+        </div>
+
+        <!-- STEP 1: APPLICANT ID CARD SCAN, MOBILE NUMBER & DISABILITY SELECTION -->
+        <div id="wizard-step-1" class="wizard-step bg-white rounded-3xl p-6 sm:p-8 border border-ivory-border shadow-md space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-4 border-b border-ivory-border pb-4">
+            <div>
+              <h2 class="text-xl font-extrabold text-maroon">Step 1: ID Card Scan, Mobile Login &amp; Disability Details</h2>
+              <p class="text-xs sm:text-sm text-stone-600 mt-1">
+                Scan your National ID card to auto-fill personal, marriage, job, and property details, then enter your mobile number and disability preferences.
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button type="button" onclick="speakStepGuidance(1)" class="bg-gold-soft hover:bg-gold/30 text-maroon border border-gold font-bold text-xs px-3.5 py-2 rounded-xl transition">
+                🔊 Listen Step 1
+              </button>
+              <span id="id-scan-badge" class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-300">
+                Awaiting ID Scan
+              </span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <!-- ID Card Scanner Box -->
+            <div class="lg:col-span-5">
+              <div id="user-id-scanner-box" class="relative rounded-2xl border-2 border-dashed border-maroon/40 bg-maroon-soft/40 p-6 text-center space-y-4 overflow-hidden">
+                <div id="user-id-beam" class="scanner-beam hidden"></div>
+                <div class="w-16 h-16 mx-auto rounded-2xl bg-maroon text-gold flex items-center justify-center shadow">
+                  <svg class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-bold text-maroon text-sm">Scan National ID Card</p>
+                  <p class="text-xs text-stone-500 mt-1">Name, age, marriage record, government job &amp; property auto-fill</p>
+                </div>
+
+                <div class="flex flex-col gap-2.5 pt-1">
+                  <label class="cursor-pointer bg-white hover:bg-stone-50 text-maroon border border-maroon/30 font-bold text-xs py-3 px-4 rounded-xl shadow-sm transition">
+                    <span>📷 Upload / Camera Scan ID Card</span>
+                    <input type="file" accept="image/*" aria-label="Upload or Camera Scan National ID Card" class="hidden" onchange="simulateUserIdScan('gov')" />
+                  </label>
+
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                    <button type="button" onclick="simulateUserIdScan('gov')" class="bg-maroon hover:bg-maroon-light text-white font-bold text-xs py-2.5 px-2.5 rounded-xl shadow transition">
+                      Scan Gov ID
+                    </button>
+                    <button type="button" onclick="simulateUserIdScan('medical')" class="bg-gold hover:bg-gold-dark text-maroon-dark font-bold text-xs py-2.5 px-2.5 rounded-xl shadow transition">
+                      Scan Doctor ID
+                    </button>
+                    <button type="button" onclick="simulateUserIdScan('tech')" class="bg-maroon-dark hover:bg-maroon text-gold font-bold text-xs py-2.5 px-2.5 rounded-xl shadow transition">
+                      Scan US Tech ID
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Auto-Populated Identity Fields -->
+            <div class="lg:col-span-7 space-y-4">
+              <div class="flex items-center justify-between">
+                <h3 class="font-bold text-sm text-maroon">Auto-Extracted Identity Fields (From National ID)</h3>
+                <button type="button" onclick="readExtractedIdSummary()" class="text-xs font-bold text-maroon underline hover:text-gold-dark">
+                  🔊 Read Extracted Details
+                </button>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div>
+                  <label for="reg-fullname" class="block text-xs font-bold text-stone-700 mb-1">Full Legal Name (Per ID Card)</label>
+                  <input id="reg-fullname" type="text" readonly placeholder="Auto-filled after ID scan" class="w-full rounded-xl bg-stone-100 border border-stone-300 px-3.5 py-2.5 text-sm font-bold text-maroon" />
+                </div>
+                <div>
+                  <label for="reg-cnic" class="block text-xs font-bold text-stone-700 mb-1">National ID / SSN / CNIC</label>
+                  <input id="reg-cnic" type="text" readonly placeholder="00000-0000000-0" class="w-full rounded-xl bg-stone-100 border border-stone-300 px-3.5 py-2.5 text-sm font-semibold text-stone-800" />
+                </div>
+                <div>
+                  <label for="reg-dob" class="block text-xs font-bold text-stone-700 mb-1">Date of Birth &amp; Age</label>
+                  <input id="reg-dob" type="text" readonly placeholder="Auto-filled after ID scan" class="w-full rounded-xl bg-stone-100 border border-stone-300 px-3.5 py-2.5 text-sm text-stone-800" />
+                </div>
+                <div>
+                  <label for="reg-gender" class="block text-xs font-bold text-stone-700 mb-1">Gender</label>
+                  <input id="reg-gender" type="text" readonly placeholder="Auto-filled after ID scan" class="w-full rounded-xl bg-stone-100 border border-stone-300 px-3.5 py-2.5 text-sm text-stone-800" />
+                </div>
+                <div>
+                  <label for="reg-marital" class="block text-xs font-bold text-stone-700 mb-1">Marital Status &amp; Previous Marriages</label>
+                  <select id="reg-marital" class="w-full rounded-xl bg-stone-100 border border-stone-300 px-3.5 py-2.5 text-sm font-bold text-emerald-800">
+                    <option value="">Awaiting ID Scan...</option>
+                    <option value="Never Married (0 Prior Marriages)">Never Married (0 Prior Marriages)</option>
+                    <option value="Divorced (1 Prior Marriage)">Divorced (1 Prior Marriage)</option>
+                    <option value="Widowed (1 Prior Marriage)">Widowed (1 Prior Marriage)</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="reg-id-job" class="block text-xs font-bold text-stone-700 mb-1">ID-Linked Employment Status</label>
+                  <input id="reg-id-job" type="text" readonly placeholder="Checked via ID registry" class="w-full rounded-xl bg-stone-100 border border-stone-300 px-3.5 py-2.5 text-sm font-semibold text-stone-800" />
+                </div>
+                <div class="sm:col-span-2">
+                  <label for="reg-id-property" class="block text-xs font-bold text-stone-700 mb-1">ID-Linked Property Records</label>
+                  <input id="reg-id-property" type="text" readonly placeholder="Registered property auto-populates here if linked" class="w-full rounded-xl bg-stone-100 border border-stone-300 px-3.5 py-2.5 text-sm font-semibold text-stone-800" />
+                </div>
+                <div>
+                  <label for="reg-city" class="block text-xs font-bold text-stone-700 mb-1">City &amp; State / Province</label>
+                  <input id="reg-city" type="text" readonly placeholder="Auto-filled from ID" class="w-full rounded-xl bg-stone-100 border border-stone-300 px-3.5 py-2.5 text-sm text-stone-800" />
+                </div>
+                <div>
+                  <label for="reg-country-name" class="block text-xs font-bold text-stone-700 mb-1">Country</label>
+                  <input id="reg-country-name" type="text" readonly placeholder="Auto-filled from ID" class="w-full rounded-xl bg-stone-100 border border-stone-300 px-3.5 py-2.5 text-sm font-bold text-stone-800" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Own Disability & Desired Partner Disability ("About / Match File" Preferences) -->
+          <div class="bg-maroon-soft/50 border border-maroon/25 rounded-2xl p-5 space-y-4">
+            <div>
+              <h3 class="font-extrabold text-maroon text-sm sm:text-base">Disability Details &amp; Partner Disability Preference (Match File)</h3>
+              <p class="text-xs text-stone-700">
+                Specify your own disability type and state what type of disability you want in a life partner so readers and matches clearly understand your preference.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-2">
+                <label for="reg-own-disability-type" class="block text-xs font-bold text-stone-800">
+                  Your Own Disability Type
+                </label>
+                <select id="reg-own-disability-type" class="w-full rounded-xl bg-white border border-stone-300 px-3.5 py-2.5 text-sm font-bold text-maroon">
+                  <option value="Blind / Visual Impairment">Blind / Visual Impairment</option>
+                  <option value="Low Vision (VI)">Low Vision (VI)</option>
+                  <option value="Physical / Mobility Handicap">Physical / Mobility Handicap</option>
+                  <option value="Hearing / Speech Impairment">Hearing / Speech Impairment</option>
+                  <option value="Multiple Disabilities">Multiple Disabilities</option>
+                  <option value="Other Specific Disability">Other Specific Disability</option>
+                  <option value="No Disability / Able-Bodied">No Disability / Able-Bodied</option>
+                </select>
+                <div class="flex items-center justify-between">
+                  <label for="reg-own-disability-notes" class="block text-[11px] font-semibold text-stone-600">Additional Details About Your Disability (Voice or Text)</label>
+                  <button type="button" onclick="listenAndSpeakField('reg-own-disability-notes', 'Please speak additional details about your own disability.')" class="text-[11px] font-bold text-maroon underline">
+                    🎙️ Speak
+                  </button>
+                </div>
+                <input id="reg-own-disability-notes" type="text" placeholder="e.g., Totally blind since birth, independent mobility with cane" class="w-full rounded-xl bg-white border border-stone-300 px-3.5 py-2 text-xs font-medium text-stone-900" />
+              </div>
+
+              <div class="space-y-2">
+                <label for="reg-partner-disability-type" class="block text-xs font-bold text-stone-800">
+                  What Type of Disability Do You Want in a Partner?
+                </label>
+                <select id="reg-partner-disability-type" class="w-full rounded-xl bg-white border border-stone-300 px-3.5 py-2.5 text-sm font-bold text-maroon">
+                  <option value="Blind / Visual Impairment Partner">Blind / Visual Impairment Partner</option>
+                  <option value="Low Vision (VI) Partner">Low Vision (VI) Partner</option>
+                  <option value="Physical / Mobility Handicap Partner">Physical / Mobility Handicap Partner</option>
+                  <option value="Hearing / Speech Impairment Partner">Hearing / Speech Impairment Partner</option>
+                  <option value="Open to Any Disability Type">Open to Any Disability Type</option>
+                  <option value="No Disability Partner Preferred">No Disability Partner Preferred</option>
+                  <option value="Other Specific Partner Disability">Other Specific Partner Disability</option>
+                </select>
+                <div class="flex items-center justify-between">
+                  <label for="reg-partner-disability-notes" class="block text-[11px] font-semibold text-stone-600">Partner Disability Preference Details (Voice or Text)</label>
+                  <button type="button" onclick="listenAndSpeakField('reg-partner-disability-notes', 'Please speak what type of disability you want in a partner.')" class="text-[11px] font-bold text-maroon underline">
+                    🎙️ Speak
+                  </button>
+                </div>
+                <input id="reg-partner-disability-notes" type="text" placeholder="e.g., Prefer visually impaired or physically handicapped partner with supportive family" class="w-full rounded-xl bg-white border border-stone-300 px-3.5 py-2 text-xs font-medium text-stone-900" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Voice-Assisted Mobile Number & OTP Verification -->
+          <div class="bg-gold-soft border-2 border-gold rounded-2xl p-5 space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 class="font-extrabold text-maroon text-sm sm:text-base">Mobile Number &amp; OTP Login Verification</h3>
+                <p class="text-xs text-stone-700">Press "Listen &amp; Speak" to speak your mobile number in your selected language, then verify via OTP.</p>
+              </div>
+              <span id="otp-verified-tag" class="hidden text-xs font-bold bg-emerald-600 text-white px-3 py-1 rounded-full">✓ Mobile OTP Verified</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 items-end">
+              <div class="sm:col-span-5 space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <label for="reg-mobile" class="block text-xs font-bold text-stone-800">Mobile Number</label>
+                  <button type="button" onclick="listenAndSpeakField('reg-mobile', 'Please speak your mobile phone number clearly.')" class="bg-maroon text-white text-[11px] font-bold px-2.5 py-1 rounded-lg hover:bg-maroon-light transition">
+                    🎙️ Listen &amp; Speak
+                  </button>
+                </div>
+                <input id="reg-mobile" type="tel" placeholder="+92 300 1234567" class="w-full rounded-xl bg-white border border-stone-300 px-4 py-2.5 text-sm font-bold text-stone-900" />
+              </div>
+              <div class="sm:col-span-4 space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <label for="reg-otp" class="block text-xs font-bold text-stone-800">Verification Code (OTP)</label>
+                  <button type="button" onclick="listenAndSpeakField('reg-otp', 'Please speak your verification code.')" class="bg-maroon text-white text-[11px] font-bold px-2.5 py-1 rounded-lg hover:bg-maroon-light transition">
+                    🎙️ Speak OTP
+                  </button>
+                </div>
+                <input id="reg-otp" type="text" maxlength="6" placeholder="Click Send OTP" class="w-full rounded-xl bg-white border border-stone-300 px-4 py-2.5 text-sm font-bold text-stone-900" />
+              </div>
+              <div class="sm:col-span-3">
+                <button type="button" onclick="sendDemoOtp()" class="w-full py-2.5 px-3 rounded-xl bg-maroon text-white font-bold text-xs hover:bg-maroon-light transition">
+                  Send &amp; Read OTP
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+            <button type="button" onclick="enterHomeAsVerifiedOrDemo()" class="bg-gold hover:bg-gold-dark text-maroon-dark font-extrabold px-5 py-3 rounded-xl shadow transition">
+              Login &amp; Go to Home →
+            </button>
+            <button type="button" onclick="goToStep(2)" class="bg-maroon hover:bg-maroon-light text-white font-bold px-6 py-3.5 rounded-xl shadow transition">
+              Next Step: Job &amp; Salary →
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 2: VERIFIED PROFESSION, EDUCATION, COMPANY & ACTUAL SALARY PROOF -->
+        <div id="wizard-step-2" class="wizard-step hidden bg-white rounded-3xl p-6 sm:p-8 border border-ivory-border shadow-md space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-4 border-b border-ivory-border pb-4">
+            <div>
+              <h2 class="text-xl font-extrabold text-maroon">Step 2: Verified Profession, Education &amp; Actual Salary Proof</h2>
+              <p class="text-xs sm:text-sm text-stone-600 mt-1">
+                Government service links automatically from your ID. For Private/Business roles, scan a stamped, signed Salary Slip or Appointment Letter matching your legal ID name.
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button type="button" onclick="speakStepGuidance(2)" class="bg-gold-soft hover:bg-gold/30 text-maroon border border-gold font-bold text-xs px-3.5 py-2 rounded-xl transition">
+                🔊 Listen Step 2
+              </button>
+              <span id="job-doc-badge" class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-300">
+                Verification Pending
+              </span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div class="lg:col-span-5 space-y-4">
+              <div class="relative rounded-2xl border-2 border-dashed border-gold-dark bg-gold-soft/50 p-6 text-center space-y-4 overflow-hidden">
+                <div id="job-doc-beam" class="scanner-beam hidden"></div>
+                <div class="w-16 h-16 mx-auto rounded-2xl bg-maroon text-gold flex items-center justify-center shadow">
+                  <svg class="w-9 h-9" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-bold text-maroon text-sm">Salary Slip / Employment Proof Scanner</h3>
+                  <p class="text-xs text-stone-600 mt-1">
+                    Checks legal ID name match, official organization stamp, authorized signature, position, and original salary.
+                  </p>
+                </div>
+
+                <div class="space-y-2">
+                  <label class="block cursor-pointer bg-white hover:bg-stone-50 text-maroon border border-maroon/30 font-bold text-xs py-2.5 px-4 rounded-xl shadow-sm transition">
+                    <span>📷 Upload &amp; Scan Official Document</span>
+                    <input type="file" accept="image/*,.pdf" aria-label="Upload and scan official salary document" class="hidden" onchange="simulateJobDocScan(true)" />
+                  </label>
+                  <button type="button" onclick="simulateJobDocScan(true)" class="w-full bg-maroon hover:bg-maroon-light text-white font-bold text-xs py-2.5 px-4 rounded-xl shadow transition">
+                    Test Valid Stamped Salary Slip Scan
+                  </button>
+                  <button type="button" onclick="simulateJobDocScan(false)" class="w-full bg-stone-200 hover:bg-stone-300 text-stone-800 font-semibold text-xs py-2 px-3 rounded-xl transition">
+                    Test Unstamped / Name Mismatch Rejection
+                  </button>
+                </div>
+              </div>
+
+              <div class="bg-stone-50 rounded-2xl p-4 border border-stone-200 space-y-2.5 text-xs">
+                <h4 class="font-extrabold text-maroon text-sm">Automated Document Authenticity Checks:</h4>
+                <div class="flex items-center justify-between">
+                  <span>1. Legal Name Matches National ID:</span>
+                  <span id="check-name-match" class="font-bold text-stone-500">Pending</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span>2. Official Stamp &amp; Signature Detected:</span>
+                  <span id="check-seal-sign" class="font-bold text-stone-500">Pending</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span>3. Position &amp; Actual Salary Verified:</span>
+                  <span id="check-salary-auth" class="font-bold text-stone-500">Pending</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-4">
+              <h3 class="font-bold text-sm text-maroon">Verified Employment, Education &amp; Actual Monthly Salary</h3>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="job-sector" class="block text-xs font-bold text-stone-700 mb-1">Employment Sector</label>
+                  <select id="job-sector" class="w-full rounded-xl bg-ivory border border-stone-300 px-3.5 py-2.5 text-sm font-bold text-stone-900">
+                    <option value="government">Government Service (ID Linked)</option>
+                    <option value="private">Private / Corporate Organization</option>
+                    <option value="business">Registered Business (Tax Verified)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <label for="job-title" class="block text-xs font-bold text-stone-700">Profession / Job Title</label>
+                    <button type="button" onclick="listenAndSpeakField('job-title', 'Please speak your official job title or profession.')" class="text-[11px] font-bold text-maroon underline">
+                      🎙️ Speak
+                    </button>
+                  </div>
+                  <input id="job-title" type="text" placeholder="e.g., Medical Doctor, Software Engineer, Teacher" class="w-full rounded-xl bg-ivory border border-stone-300 px-3.5 py-2.5 text-sm font-semibold text-stone-900" />
+                </div>
+
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <label for="job-company" class="block text-xs font-bold text-stone-700">Company / Institution</label>
+                    <button type="button" onclick="listenAndSpeakField('job-company', 'Please speak your company or department name.')" class="text-[11px] font-bold text-maroon underline">
+                      🎙️ Speak
+                    </button>
+                  </div>
+                  <input id="job-company" type="text" placeholder="e.g., Hospital / Govt Dept" class="w-full rounded-xl bg-ivory border border-stone-300 px-3.5 py-2.5 text-sm font-semibold text-stone-900" />
+                </div>
+
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <label for="job-salary" class="block text-xs font-bold text-stone-700">Actual Monthly Salary</label>
+                    <button type="button" onclick="listenAndSpeakField('job-salary', 'Please speak your exact actual monthly salary.')" class="text-[11px] font-bold text-maroon underline">
+                      🎙️ Speak
+                    </button>
+                  </div>
+                  <input id="job-salary" type="text" placeholder="e.g., PKR 250,000 or $6,500" class="w-full rounded-xl bg-ivory border border-stone-300 px-3.5 py-2.5 text-sm font-extrabold text-maroon" />
+                </div>
+
+                <div class="sm:col-span-2">
+                  <div class="flex items-center justify-between mb-1">
+                    <label for="reg-education" class="block text-xs font-bold text-stone-700">Highest Verified Education / Degree</label>
+                    <button type="button" onclick="listenAndSpeakField('reg-education', 'Please speak your highest education degree.')" class="text-[11px] font-bold text-maroon underline">
+                      🎙️ Speak
+                    </button>
+                  </div>
+                  <input id="reg-education" type="text" placeholder="e.g., MBBS / MS Computer Science / M.Phil" class="w-full rounded-xl bg-ivory border border-stone-300 px-3.5 py-2.5 text-sm font-semibold text-stone-900" />
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label for="job-doc-ref" class="block text-xs font-bold text-stone-700 mb-1">Document Name Match &amp; Stamp Audit Result</label>
+                  <input id="job-doc-ref" type="text" readonly placeholder="Audit result appears automatically after document scan" class="w-full rounded-xl bg-stone-100 border border-stone-300 px-3.5 py-2.5 text-sm font-semibold text-emerald-800" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+            <button type="button" onclick="goToStep(1)" class="bg-stone-200 hover:bg-stone-300 text-stone-800 font-bold px-5 py-3 rounded-xl transition">
+              ← Previous Step
+            </button>
+            <button type="button" onclick="goToStep(3)" class="bg-maroon hover:bg-maroon-light text-white font-bold px-6 py-3.5 rounded-xl shadow transition">
+              Next Step: Parents' IDs, Siblings &amp; Property →
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 3: PARENTS' ID SCANS, SIBLINGS & PROPERTY DETAILS -->
+        <div id="wizard-step-3" class="wizard-step hidden bg-white rounded-3xl p-6 sm:p-8 border border-ivory-border shadow-md space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-4 border-b border-ivory-border pb-4">
+            <div>
+              <h2 class="text-xl font-extrabold text-maroon">Step 3: Parents' National ID Scans, Siblings &amp; Property</h2>
+              <p class="text-xs sm:text-sm text-stone-600 mt-1">
+                Scan Father's and Mother's National ID Cards and use Listen &amp; Speak buttons to dictate siblings and property details.
+              </p>
+            </div>
+            <button type="button" onclick="speakStepGuidance(3)" class="bg-gold-soft hover:bg-gold/30 text-maroon border border-gold font-bold text-xs px-3.5 py-2 rounded-xl transition">
+              🔊 Listen Step 3
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="rounded-2xl border border-ivory-border bg-ivory p-5 space-y-3">
+              <div class="flex items-center justify-between">
+                <h3 class="font-extrabold text-maroon text-base">Father's National ID Scan</h3>
+                <span id="father-id-status" class="text-xs font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800">Pending Scan</span>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <label class="cursor-pointer bg-white border border-stone-300 hover:bg-stone-50 text-xs font-bold px-3.5 py-2 rounded-xl">
+                  <span>📷 Upload Father's ID</span>
+                  <input type="file" accept="image/*" aria-label="Upload Father National ID" class="hidden" onchange="scanParentId('father')" />
+                </label>
+                <button type="button" onclick="scanParentId('father')" class="bg-maroon text-white hover:bg-maroon-light text-xs font-bold px-4 py-2 rounded-xl transition">
+                  Scan Father ID
+                </button>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                <div>
+                  <label for="father-name" class="block text-xs font-bold text-stone-600 mb-1">Father's Legal Name</label>
+                  <input id="father-name" type="text" readonly placeholder="Populates on ID scan" class="w-full rounded-xl bg-white border border-stone-300 px-3 py-2 text-xs font-bold" />
+                </div>
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <label for="father-job" class="block text-xs font-bold text-stone-600">Father's Profession</label>
+                    <button type="button" onclick="listenAndSpeakField('father-job', 'Please speak your father profession.')" class="text-[11px] font-bold text-maroon underline">
+                      🎙️ Speak
+                    </button>
+                  </div>
+                  <input id="father-job" type="text" placeholder="e.g., Retired Civil Officer" class="w-full rounded-xl bg-white border border-stone-300 px-3 py-2 text-xs font-semibold" />
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-2xl border border-ivory-border bg-ivory p-5 space-y-3">
+              <div class="flex items-center justify-between">
+                <h3 class="font-extrabold text-maroon text-base">Mother's National ID Scan</h3>
+                <span id="mother-id-status" class="text-xs font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800">Pending Scan</span>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <label class="cursor-pointer bg-white border border-stone-300 hover:bg-stone-50 text-xs font-bold px-3.5 py-2 rounded-xl">
+                  <span>📷 Upload Mother's ID</span>
+                  <input type="file" accept="image/*" aria-label="Upload Mother National ID" class="hidden" onchange="scanParentId('mother')" />
+                </label>
+                <button type="button" onclick="scanParentId('mother')" class="bg-maroon text-white hover:bg-maroon-light text-xs font-bold px-4 py-2 rounded-xl transition">
+                  Scan Mother ID
+                </button>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                <div>
+                  <label for="mother-name" class="block text-xs font-bold text-stone-600 mb-1">Mother's Legal Name</label>
+                  <input id="mother-name" type="text" readonly placeholder="Populates on ID scan" class="w-full rounded-xl bg-white border border-stone-300 px-3 py-2 text-xs font-bold" />
+                </div>
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <label for="mother-job" class="block text-xs font-bold text-stone-600">Mother's Profession</label>
+                    <button type="button" onclick="listenAndSpeakField('mother-job', 'Please speak your mother profession.')" class="text-[11px] font-bold text-maroon underline">
+                      🎙️ Speak
+                    </button>
+                  </div>
+                  <input id="mother-job" type="text" placeholder="e.g., School Principal / Homemaker" class="w-full rounded-xl bg-white border border-stone-300 px-3 py-2 text-xs font-semibold" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <h3 class="font-extrabold text-maroon text-base">Siblings Information</h3>
+                <button type="button" onclick="listenAndSpeakField('siblings-notes', 'Please speak your brothers and sisters details.')" class="bg-maroon text-white text-xs font-bold px-3 py-1.5 rounded-xl hover:bg-maroon-light transition">
+                  🎙️ Listen &amp; Speak Siblings
+                </button>
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label for="brothers-count" class="block text-xs font-bold text-stone-700 mb-1">Brothers</label>
+                  <input id="brothers-count" type="text" placeholder="e.g., 1 Brother" class="w-full rounded-xl bg-ivory border border-stone-300 px-3.5 py-2.5 text-sm" />
+                </div>
+                <div>
+                  <label for="sisters-count" class="block text-xs font-bold text-stone-700 mb-1">Sisters</label>
+                  <input id="sisters-count" type="text" placeholder="e.g., 2 Sisters" class="w-full rounded-xl bg-ivory border border-stone-300 px-3.5 py-2.5 text-sm" />
+                </div>
+              </div>
+              <div>
+                <label for="siblings-notes" class="block text-xs font-bold text-stone-700 mb-1">Siblings Details (Voice or Text)</label>
+                <input id="siblings-notes" type="text" placeholder="Speak or enter siblings education and marital status" class="w-full rounded-xl bg-ivory border border-stone-300 px-3.5 py-2.5 text-sm" />
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <h3 class="font-extrabold text-maroon text-base">Property &amp; Assets</h3>
+                <button type="button" onclick="listenAndSpeakField('property-summary', 'Please speak details of your house, plots, or property.')" class="bg-maroon text-white text-xs font-bold px-3 py-1.5 rounded-xl hover:bg-maroon-light transition">
+                  🎙️ Listen &amp; Speak Property
+                </button>
+              </div>
+              <div>
+                <label for="property-summary" class="block text-xs font-bold text-stone-700 mb-1">ID-Linked &amp; Family Property Details</label>
+                <textarea id="property-summary" rows="4" class="w-full rounded-xl bg-ivory border border-stone-300 px-3.5 py-2.5 text-sm" placeholder="ID-linked property appears automatically; speak or enter additional property details here..."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-ivory-border">
+            <button type="button" onclick="goToStep(2)" class="bg-stone-200 hover:bg-stone-300 text-stone-800 font-bold px-5 py-3 rounded-xl transition">
+              ← Previous Step
+            </button>
+            <button type="button" onclick="goToStep(4)" class="bg-maroon hover:bg-maroon-light text-white font-bold px-6 py-3.5 rounded-xl shadow transition">
+              Next Step: Country Application Fee →
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 4: CONFIDENTIAL COUNTRY-SPECIFIC APPLICATION FEE & VERIFICATION -->
+        <div id="wizard-step-4" class="wizard-step hidden bg-white rounded-3xl p-6 sm:p-8 border border-ivory-border shadow-md space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-4 border-b border-ivory-border pb-4">
+            <div>
+              <h2 class="text-xl font-extrabold text-maroon">Step 4: Country Application Fee &amp; Enter Home</h2>
+              <p class="text-xs sm:text-sm text-stone-600 mt-1">
+                Your country's exact verification and application fee is displayed privately below based on your region.
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button type="button" onclick="speakStepGuidance(4)" class="bg-gold-soft hover:bg-gold/30 text-maroon border border-gold font-bold text-xs px-3.5 py-2 rounded-xl transition">
+                🔊 Listen Fee Details
+              </button>
+              <span id="fee-paid-badge" class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-300">
+                Payment Pending
+              </span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <div class="lg:col-span-5 bg-gradient-to-br from-maroon-dark via-maroon to-[#4A0B24] text-white rounded-3xl p-6 border-2 border-gold shadow-lg space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold uppercase tracking-wider text-gold">Detected Applicant Region</span>
+                <span id="detected-country-pill" class="bg-white/15 text-white text-xs font-bold px-3 py-1 rounded-full">
+                  Pakistan
+                </span>
+              </div>
+
+              <div>
+                <label for="applicant-country-select" class="block text-xs text-ivory/80 font-semibold mb-1">
+                  Confirm Your Country of Residence
+                </label>
+                <select id="applicant-country-select" onchange="onCountryChange(this.value)" class="w-full rounded-xl bg-white text-maroon-dark font-bold text-sm px-3.5 py-2.5 border border-gold">
+                  <option value="PK">Pakistan</option>
+                  <option value="US">United States</option>
+                  <option value="GB">United Kingdom</option>
+                  <option value="AE">United Arab Emirates</option>
+                  <option value="SA">Saudi Arabia</option>
+                  <option value="CA">Canada</option>
+                  <option value="AU">Australia</option>
+                  <option value="DE">Germany</option>
+                  <option value="IN">India</option>
+                  <option value="INTL">Other International Country</option>
+                </select>
+              </div>
+
+              <div class="bg-white/10 border border-gold/40 rounded-2xl p-5 text-center space-y-1">
+                <span class="text-xs uppercase tracking-wider text-gold-light font-semibold block">
+                  One-Time Application &amp; ID Verification Fee
+                </span>
+                <p id="single-country-fee-amount" class="brand-serif text-3xl sm:text-4xl font-extrabold text-gold">
+                  PKR 1,000
+                </p>
+                <p id="single-country-fee-note" class="text-xs text-ivory/80 pt-1">
+                  Applicable exclusively to applicants residing in Pakistan.
+                </p>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-4">
+              <h3 class="font-extrabold text-maroon text-base">Select Payment Method &amp; Confirm Transaction</h3>
+
+              <div>
+                <label for="payment-method-select" class="block text-xs font-bold text-stone-700 mb-1">
+                  Available Payment Channels for <span id="payment-region-label">Pakistan</span>
+                </label>
+                <select id="payment-method-select" class="w-full rounded-xl bg-ivory border border-stone-300 px-4 py-3 text-sm font-bold text-stone-900">
+                </select>
+              </div>
+
+              <div class="bg-ivory rounded-2xl p-4 border border-ivory-border space-y-2 text-xs text-stone-700">
+                <p class="font-bold text-maroon">Official Account / Merchant Details:</p>
+                <p id="merchant-account-info" class="font-semibold text-stone-900"></p>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <label for="payment-tx-id" class="block text-xs font-bold text-stone-700">Transaction / Receipt ID</label>
+                    <button type="button" onclick="listenAndSpeakField('payment-tx-id', 'Please speak your transaction ID.')" class="text-[11px] font-bold text-maroon underline">
+                      🎙️ Speak
+                    </button>
+                  </div>
+                  <input id="payment-tx-id" type="text" placeholder="e.g., TXN-94827104" class="w-full rounded-xl bg-white border border-stone-300 px-3.5 py-2.5 text-sm font-bold text-stone-900" />
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold text-stone-700 mb-1">Upload Payment Receipt (Optional)</label>
+                  <label class="cursor-pointer flex items-center justify-center bg-white hover:bg-stone-50 text-maroon border border-maroon/30 font-bold text-xs py-2.5 px-3.5 rounded-xl transition">
+                    <span>📄 Attach Receipt Screenshot</span>
+                    <input type="file" accept="image/*,.pdf" aria-label="Attach Payment Receipt Screenshot" class="hidden" onchange="confirmFeePayment()" />
+                  </label>
+                </div>
+              </div>
+
+              <div class="pt-1">
+                <button type="button" onclick="confirmFeePayment()" class="w-full sm:w-auto bg-gold hover:bg-gold-dark text-maroon-dark font-extrabold text-xs sm:text-sm px-6 py-3 rounded-xl shadow transition">
+                  ✓ Verify &amp; Confirm Fee Payment (<span id="confirm-btn-fee-label">PKR 1,000</span>)
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-ivory-border">
+            <button type="button" onclick="goToStep(3)" class="bg-stone-200 hover:bg-stone-300 text-stone-800 font-bold px-5 py-3 rounded-xl transition">
+              ← Previous Step
+            </button>
+            <button type="button" onclick="publishVerifiedProfile()" class="bg-gradient-to-r from-maroon to-maroon-dark hover:opacity-95 text-gold font-extrabold text-base px-8 py-3.5 rounded-2xl border border-gold shadow-lg transition">
+              ✓ Complete Sign Up &amp; Enter Home
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 1. HOME PAGE (SEARCH BAR + TWO DROPDOWN MENUS ONLY) ==================== -->
+    <section id="page-home" aria-labelledby="home-heading" class="page-section hidden py-8 sm:py-12">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+
+        <h1 id="home-heading" class="sr-only">Match Pro Home</h1>
+
+        <!-- Clean Home Controls: Search Bar + Menu 1 (Info/Verification/About) + Menu 2 (Categories & Disability) -->
+        <div class="bg-white rounded-3xl border border-ivory-border p-5 sm:p-6 shadow-md space-y-4">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 items-stretch">
+
+            <!-- Search Bar with Speak Search -->
+            <div class="lg:col-span-6 relative flex items-center">
+              <label for="profile-search-input" class="sr-only">Search verified profiles</label>
+              <input
+                id="profile-search-input"
+                type="search"
+                oninput="applySearchAndFilters()"
+                placeholder="Search profession, disability type, city, country..."
+                class="w-full rounded-2xl bg-ivory border border-stone-300 pl-4 pr-32 py-3.5 text-sm font-medium text-stone-900 placeholder:text-stone-500"
+              />
+              <button
+                type="button"
+                onclick="speakSearchQuery()"
+                class="absolute right-2 bg-maroon hover:bg-maroon-light text-white font-bold text-xs px-3.5 py-2 rounded-xl transition inline-flex items-center gap-1.5"
+                aria-label="Speak Search Query"
+              >
+                <span aria-hidden="true">🎙️</span>
+                <span>Speak</span>
+              </button>
+            </div>
+
+            <!-- MENU 1: Info, Verification, How It Works, About & Proposals Dropdown -->
+            <div class="lg:col-span-3 relative">
+              <button
+                type="button"
+                id="menu-1-btn"
+                aria-expanded="false"
+                aria-controls="menu-1-dropdown"
+                onclick="toggleHomeMenu(1)"
+                class="w-full h-full inline-flex items-center justify-between gap-2 bg-maroon hover:bg-maroon-light text-white font-bold text-sm px-4 py-3.5 rounded-2xl shadow-sm transition"
+              >
+                <span>☰ Info &amp; Verification</span>
+                <span class="text-gold text-xs">▾</span>
+              </button>
+
+              <div id="menu-1-dropdown" class="hidden absolute left-0 right-0 mt-2 z-30 bg-white rounded-2xl border-2 border-gold shadow-2xl p-3 space-y-1.5">
+                <button type="button" onclick="closeHomeMenus(); openSubView('verification')" class="w-full text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-maroon hover:bg-maroon-soft transition">
+                  🛡️ Verification Details
+                </button>
+                <button type="button" onclick="closeHomeMenus(); openSubView('how-it-works')" class="w-full text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-maroon hover:bg-maroon-soft transition">
+                  📖 How It Works
+                </button>
+                <button type="button" onclick="closeHomeMenus(); openSubView('about')" class="w-full text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-maroon hover:bg-maroon-soft transition">
+                  ℹ️ About Match Pro
+                </button>
+                <button type="button" onclick="closeHomeMenus(); openSubView('proposals')" class="w-full text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-maroon hover:bg-maroon-soft transition flex items-center justify-between">
+                  <span>💌 My Proposals &amp; Inbox</span>
+                  <span id="nav-proposal-badge" class="bg-gold text-maroon-dark text-xs font-extrabold px-2 py-0.5 rounded-full">0</span>
+                </button>
+                <button type="button" onclick="closeHomeMenus(); backToSignupScreen()" class="w-full text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-stone-700 hover:bg-stone-100 transition">
+                  🪪 Sign Up / ID Verification Screen
+                </button>
+
+                <!-- Two Previously Requested Hidden Items Kept Inside Menu 1 Dropdown -->
+                <div id="menu-1-hidden-items" class="hidden pt-1 mt-1 border-t border-ivory-border space-y-1">
+                  <button type="button" data-hidden-item="true" onclick="closeHomeMenus(); speakText('Reserved verification vault option selected.', true)" class="w-full text-left px-3.5 py-2 rounded-xl text-xs font-semibold text-stone-600 hover:bg-gold-soft">
+                    🔐 Reserved Registry Vault
+                  </button>
+                  <button type="button" data-hidden-item="true" onclick="closeHomeMenus(); speakText('Reserved family attestation option selected.', true)" class="w-full text-left px-3.5 py-2 rounded-xl text-xs font-semibold text-stone-600 hover:bg-gold-soft">
+                    📜 Reserved Family Attestation
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- MENU 2: Auto-Categorized Profession & Disability Dropdown -->
+            <div class="lg:col-span-3 relative">
+              <button
+                type="button"
+                id="menu-2-btn"
+                aria-expanded="false"
+                aria-controls="menu-2-dropdown"
+                onclick="toggleHomeMenu(2)"
+                class="w-full h-full inline-flex items-center justify-between gap-2 bg-gold-soft hover:bg-gold/30 text-maroon-dark border-2 border-gold font-extrabold text-sm px-4 py-3.5 rounded-2xl shadow-sm transition"
+              >
+                <span id="menu-2-label" class="truncate">📂 Categories &amp; Disability</span>
+                <span class="text-xs">▾</span>
+              </button>
+
+              <div id="menu-2-dropdown" class="hidden absolute left-0 right-0 mt-2 z-30 bg-white rounded-2xl border-2 border-gold shadow-2xl p-3 space-y-3 max-h-96 overflow-y-auto custom-scrollbar">
+                <!-- Dynamic Profession & Gender Categories -->
+                <div>
+                  <p class="px-2 pb-1 text-[11px] font-extrabold uppercase tracking-wider text-gold-dark">
+                    Auto-Categorized Profiles
+                  </p>
+                  <div id="menu-2-category-list" class="space-y-1">
+                    <!-- Populated dynamically -->
+                  </div>
+                </div>
+
+                <!-- Disability Type Filter Menu Inside Menu 2 -->
+                <div class="pt-2 border-t border-ivory-border">
+                  <label for="menu-2-disability-select" class="block px-2 pb-1 text-[11px] font-extrabold uppercase tracking-wider text-maroon">
+                    Disability Type Filter
+                  </label>
+                  <select
+                    id="menu-2-disability-select"
+                    onchange="onDisabilityFilterChange(this.value)"
+                    class="w-full rounded-xl bg-ivory border border-gold text-maroon-dark font-bold text-xs px-3 py-2.5 cursor-pointer"
+                  >
+                    <option value="ALL">♿ All Disability Types</option>
+                    <option value="Blind / Visual Impairment">👁️ Blind / Visual Impairment</option>
+                    <option value="Low Vision (VI)">🔍 Low Vision (VI)</option>
+                    <option value="Physical / Mobility Handicap">🦽 Physical / Mobility Handicap</option>
+                    <option value="Hearing / Speech Impairment">🦻 Hearing / Speech Impairment</option>
+                    <option value="Multiple Disabilities">🧩 Multiple Disabilities</option>
+                    <option value="No Disability / Able-Bodied">✓ No Disability / Able-Bodied</option>
+                  </select>
+                </div>
+
+                <!-- Two Previously Requested Hidden Items Kept Inside Menu 2 Dropdown -->
+                <div id="menu-2-hidden-items" class="hidden pt-2 border-t border-ivory-border space-y-1">
+                  <button type="button" data-hidden-item="true" onclick="closeHomeMenus(); speakText('Hidden category archive item selected.', true)" class="w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-stone-600 hover:bg-gold-soft">
+                    📁 Hidden Category Preset A
+                  </button>
+                  <button type="button" data-hidden-item="true" onclick="closeHomeMenus(); speakText('Hidden category archive item selected.', true)" class="w-full text-left px-3 py-2 rounded-xl text-xs font-semibold text-stone-600 hover:bg-gold-soft">
+                    📁 Hidden Category Preset B
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Profiles Directory on Home (0 until profiles are published) -->
+        <div id="profiles-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 2. VERIFICATION DETAILS VIEW (FROM MENU 1) ==================== -->
+    <section id="page-verification" aria-labelledby="verification-heading" class="page-section hidden py-10 sm:py-14">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <div class="flex items-center justify-between gap-4">
+          <h1 id="verification-heading" class="brand-serif text-2xl sm:text-4xl font-bold text-maroon">
+            Verification Standards
+          </h1>
+          <button type="button" onclick="navigateTo('home')" class="bg-maroon text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl">
+            ← Back to Home
+          </button>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-ivory-border shadow-md space-y-4 text-sm text-stone-700 leading-relaxed">
+          <p><strong>1. National ID Scan:</strong> Extracts legal name, age, gender, marital status, linked government service, and registered property automatically.</p>
+          <p><strong>2. Employment &amp; Actual Salary Audit:</strong> Verifies that the document name matches the National ID card and carries an official stamp and signature.</p>
+          <p><strong>3. Parents' ID Scans &amp; Disability Transparency:</strong> Scans Father and Mother IDs and records both own disability type and desired partner disability type clearly.</p>
+          <p><strong>4. Verified-Only Proposals:</strong> Only ID-verified members can send proposals, and phone numbers unlock only after mutual acceptance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. MY PROPOSALS & INBOX VIEW (FROM MENU 1) ==================== -->
+    <section id="page-proposals" aria-labelledby="proposals-heading" class="page-section hidden py-10 sm:py-14">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-ivory-border pb-5">
+          <div>
+            <h1 id="proposals-heading" class="brand-serif text-2xl sm:text-4xl font-bold text-maroon">
+              My Proposals &amp; Inbox
+            </h1>
+            <p class="text-sm text-stone-600 mt-1">
+              Only ID-verified members can send or receive proposals. Direct contact details unlock upon mutual acceptance.
+            </p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="readProposalsAloud()" class="bg-gold hover:bg-gold-dark text-maroon-dark font-extrabold text-xs sm:text-sm px-4 py-2.5 rounded-xl">
+              🔊 Listen Inbox
+            </button>
+            <button type="button" onclick="navigateTo('home')" class="bg-maroon text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl">
+              ← Back to Home
+            </button>
+          </div>
+        </div>
+
+        <div id="proposals-content-area" class="space-y-8">
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. HOW IT WORKS VIEW (FROM MENU 1) ==================== -->
+    <section id="page-how-it-works" aria-labelledby="how-heading" class="page-section hidden py-12 sm:py-16">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div class="flex items-center justify-between gap-4">
+          <h1 id="how-heading" class="brand-serif text-2xl sm:text-4xl font-bold text-maroon">
+            How Match Pro Works
+          </h1>
+          <button type="button" onclick="navigateTo('home')" class="bg-maroon text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl">
+            ← Back to Home
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-3xl p-6 border border-ivory-border shadow-sm space-y-2">
+            <h2 class="font-bold text-lg text-maroon">1. ID Scan &amp; Voice Sign Up</h2>
+            <p class="text-sm text-stone-600 leading-relaxed">Scan your National ID card, enter your mobile number, set your disability and partner disability preference, and listen in English, Urdu, Hindi, or Arabic.</p>
+          </div>
+          <div class="bg-white rounded-3xl p-6 border border-ivory-border shadow-sm space-y-2">
+            <h2 class="font-bold text-lg text-maroon">2. Salary &amp; Stamp Verification</h2>
+            <p class="text-sm text-stone-600 leading-relaxed">Employment proof is checked for legal ID name match, official stamp, signature, and actual monthly salary.</p>
+          </div>
+          <div class="bg-white rounded-3xl p-6 border border-ivory-border shadow-sm space-y-2">
+            <h2 class="font-bold text-lg text-maroon">3. Auto-Categories &amp; Disability Filtering</h2>
+            <p class="text-sm text-stone-600 leading-relaxed">Verified profiles automatically populate profession categories and can be filtered by disability type on the Home page.</p>
+          </div>
+          <div class="bg-white rounded-3xl p-6 border border-ivory-border shadow-sm space-y-2">
+            <h2 class="font-bold text-lg text-maroon">4. Verified-Only Proposals</h2>
+            <p class="text-sm text-stone-600 leading-relaxed">Only verified members can send proposals, and direct mobile numbers unlock once both sides accept.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. ABOUT MATCH PRO VIEW (FROM MENU 1 — SINGLE "CREATED BY HUMAIRA SARDAR" MENTION) ==================== -->
+    <section id="page-about" aria-labelledby="about-heading" class="page-section hidden py-12 sm:py-16">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div class="flex items-center justify-between gap-4">
+          <h1 id="about-heading" class="brand-serif text-2xl sm:text-4xl font-bold text-maroon">
+            About Match Pro
+          </h1>
+          <button type="button" onclick="navigateTo('home')" class="bg-maroon text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl">
+            ← Back to Home
+          </button>
+        </div>
+
+        <div class="bg-gradient-to-br from-maroon-dark via-maroon to-[#4A0B24] text-white rounded-3xl p-8 sm:p-10 border-2 border-gold shadow-2xl space-y-5">
+          <p class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-gold">
+            Created by Humaira Sardar
+          </p>
+
+          <p class="text-base sm:text-lg text-ivory/90 leading-relaxed">
+            Match Pro was built specifically for blind and visually impaired individuals worldwide to create ID-verified matrimonial profiles independently, listen in their own spoken language, clearly state their own and desired partner disability type, and connect safely with verified members.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== MODAL 1: FULL VERIFIED DOSSIER MODAL ==================== -->
+  <div id="profile-modal" role="dialog" aria-modal="true" aria-labelledby="modal-profile-name" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full border-2 border-gold shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+      <div class="bg-maroon text-white px-6 py-4 flex items-center justify-between border-b border-gold/40">
+        <div>
+          <span class="text-xs text-gold font-bold uppercase tracking-wider">Official Verified Member Dossier</span>
+          <h3 id="modal-profile-name" class="brand-serif text-xl font-bold"></h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <button type="button" onclick="readModalAloud()" class="bg-gold text-maroon-dark font-bold text-xs px-3 py-1.5 rounded-xl">
+            🔊 Listen Dossier
+          </button>
+          <button type="button" onclick="closeProfileModal()" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold" aria-label="Close modal">✕</button>
+        </div>
+      </div>
+      <div id="modal-profile-body" class="p-6 overflow-y-auto custom-scrollbar space-y-4 text-sm">
+      </div>
+      <div class="bg-ivory px-6 py-4 border-t border-ivory-border flex flex-wrap justify-between items-center gap-2">
+        <span class="text-xs text-emerald-700 font-bold">✓ National ID, Salary Document &amp; Parents' IDs Verified</span>
+        <div class="flex items-center gap-2">
+          <button type="button" id="modal-send-proposal-btn" class="bg-gold hover:bg-gold-dark text-maroon-dark font-extrabold px-4 py-2 rounded-xl text-xs">
+            💌 Send Proposal / Request Contact
+          </button>
+          <button type="button" onclick="closeProfileModal()" class="bg-maroon text-white font-bold px-4 py-2 rounded-xl text-xs">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 2: STRICT VERIFICATION GATE ALERT MODAL ==================== -->
+  <div id="verification-gate-modal" role="alertdialog" aria-modal="true" aria-labelledby="gate-modal-title" aria-describedby="gate-modal-desc" class="fixed inset-0 z-50 hidden bg-black/65 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full border-2 border-gold shadow-2xl overflow-hidden">
+      <div class="bg-maroon-dark text-white px-6 py-4 flex items-center justify-between border-b border-gold/40">
+        <div class="flex items-center gap-2.5">
+          <span class="text-xl" aria-hidden="true">🔒</span>
+          <h3 id="gate-modal-title" class="brand-serif text-lg font-bold text-gold">Verification Required</h3>
+        </div>
+        <button type="button" onclick="closeVerificationGateModal()" class="w-8 h-8 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold" aria-label="Close alert">✕</button>
+      </div>
+      <div class="p-6 space-y-4">
+        <p id="gate-modal-desc" class="text-sm sm:text-base font-semibold text-stone-800 leading-relaxed">
+          Verification Required: Only registered members with a verified ID profile can contact or send proposals to members.
+        </p>
+        <div class="flex flex-wrap items-center justify-end gap-3 pt-2">
+          <button type="button" onclick="closeVerificationGateModal()" class="bg-stone-200 hover:bg-stone-300 text-stone-800 font-bold text-xs px-4 py-2.5 rounded-xl">
+            Cancel
+          </button>
+          <button type="button" onclick="closeVerificationGateModal(); backToSignupScreen()" class="bg-maroon hover:bg-maroon-light text-white font-extrabold text-xs sm:text-sm px-5 py-3 rounded-xl shadow transition">
+            Go to ID Verification &amp; Sign Up →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 3: SEND VERIFIED PROPOSAL MODAL ==================== -->
+  <div id="send-proposal-modal" role="dialog" aria-modal="true" aria-labelledby="proposal-modal-title" class="fixed inset-0 z-50 hidden bg-black/65 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full border-2 border-gold shadow-2xl overflow-hidden">
+      <div class="bg-maroon text-white px-6 py-4 flex items-center justify-between border-b border-gold/40">
+        <div>
+          <span class="text-xs text-gold font-bold uppercase tracking-wider">Verified Member Proposal</span>
+          <h3 id="proposal-modal-title" class="brand-serif text-lg font-bold">Send Marriage Proposal</h3>
+        </div>
+        <button type="button" onclick="closeSendProposalModal()" class="w-8 h-8 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold" aria-label="Close modal">✕</button>
+      </div>
+      <div class="p-6 space-y-4">
+        <div class="bg-ivory rounded-2xl p-3.5 border border-ivory-border text-xs space-y-1">
+          <p><strong>From Verified Member:</strong> <span id="proposal-sender-label" class="text-maroon font-bold"></span></p>
+          <p><strong>To Verified Member:</strong> <span id="proposal-recipient-label" class="text-maroon font-bold"></span></p>
+        </div>
+
+        <div class="space-y-1.5">
+          <div class="flex items-center justify-between">
+            <label for="proposal-message-input" class="block text-xs font-bold text-stone-800">
+              Respectful Family Proposal Message
+            </label>
+            <button type="button" onclick="listenAndSpeakField('proposal-message-input', 'Please speak your respectful marriage proposal message for the family.')" class="bg-maroon text-white text-[11px] font-bold px-3 py-1 rounded-lg hover:bg-maroon-light transition">
+              🎙️ Listen &amp; Speak Message
+            </button>
+          </div>
+          <textarea id="proposal-message-input" rows="4" class="w-full rounded-2xl bg-ivory border border-stone-300 p-3.5 text-sm text-stone-900" placeholder="Assalam-o-Alaikum / Greetings. Our family reviewed your verified dossier on Match Pro and would like to proceed with mutual contact..."></textarea>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-end gap-3 pt-2">
+          <button type="button" onclick="closeSendProposalModal()" class="bg-stone-200 hover:bg-stone-300 text-stone-800 font-bold text-xs px-4 py-2.5 rounded-xl">
+            Cancel
+          </button>
+          <button type="button" onclick="submitVerifiedProposal()" class="bg-gold hover:bg-gold-dark text-maroon-dark font-extrabold text-xs sm:text-sm px-6 py-3 rounded-xl shadow transition">
+            ✓ Send Official Verified Proposal
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Minimal Global Footer -->
+  <footer class="bg-maroon-dark text-ivory/90 border-t-4 border-gold mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+      <span class="brand-serif text-lg font-extrabold text-white">Match Pro</span>
+      <span class="text-ivory/75">Multilingual Voice-Guided &amp; ID-Verified Matrimony</span>
+    </div>
+  </footer>
+
+  <!-- Complete Application Script -->
+  <script>
+    const STORAGE_KEYS = {
+      PROFILES: 'matchpro_verified_profiles_v3',
+      PROPOSALS: 'matchpro_verified_proposals_v3',
+      ACTIVE_USER: 'matchpro_active_user_id_v3',
+      SPOKEN_LANG: 'matchpro_spoken_lang_v3'
+    };
+
+    const countryFeeCatalog = {
+      PK: {
+        name: 'Pakistan',
+        feeDisplay: 'PKR 1,000',
+        speechFee: '1,000 Pakistani Rupees',
+        methods: ['JazzCash Mobile Account', 'EasyPaisa Mobile Account', 'SadaPay / NayaPay', 'Raast / Pakistani Bank Transfer', 'Debit / Credit Card'],
+        accountInfo: 'Match Pro Merchant (Pakistan) — Raast / IBAN: PK36MEZN0002140108945120 | JazzCash & EasyPaisa: 0300-8492011'
+      },
+      US: {
+        name: 'United States',
+        feeDisplay: '$100 USD',
+        speechFee: '100 US Dollars',
+        methods: ['Visa / Mastercard / Amex', 'Apple Pay', 'Google Pay', 'ACH Bank Transfer'],
+        accountInfo: 'Match Pro Global LLC (USA) — Routing: 021000021 | Instant Card & Apple Pay Checkout'
+      },
+      GB: {
+        name: 'United Kingdom',
+        feeDisplay: '£80 GBP',
+        speechFee: '80 British Pounds',
+        methods: ['UK Debit / Credit Card', 'Apple Pay / Google Pay', 'Faster Payments Bank Transfer'],
+        accountInfo: 'Match Pro UK Desk — Sort Code: 20-00-00 | Account: 48291045'
+      },
+      AE: {
+        name: 'United Arab Emirates',
+        feeDisplay: 'AED 350',
+        speechFee: '350 UAE Dirhams',
+        methods: ['UAE Credit / Debit Card', 'Apple Pay / Samsung Pay', 'UAEFTS Bank Transfer'],
+        accountInfo: 'Match Pro MENA Desk — IBAN: AE070331234567890123456'
+      },
+      SA: {
+        name: 'Saudi Arabia',
+        feeDisplay: 'SAR 375',
+        speechFee: '375 Saudi Riyals',
+        methods: ['Mada Card', 'Visa / Mastercard', 'Apple Pay', 'Saudi Bank Transfer'],
+        accountInfo: 'Match Pro KSA Desk — IBAN: SA0380000000608010167519'
+      },
+      CA: {
+        name: 'Canada',
+        feeDisplay: '$135 CAD',
+        speechFee: '135 Canadian Dollars',
+        methods: ['Interac e-Transfer', 'Visa / Mastercard', 'Apple Pay / Google Pay'],
+        accountInfo: 'Match Pro Canada Desk — Interac Auto-Deposit: billing@matchpro-global.org'
+      },
+      AU: {
+        name: 'Australia',
+        feeDisplay: 'AUD 145',
+        speechFee: '145 Australian Dollars',
+        methods: ['PayID / Osko Transfer', 'Visa / Mastercard', 'Apple Pay'],
+        accountInfo: 'Match Pro Australia Desk — BSB: 062-000 | Account: 10948271'
+      },
+      DE: {
+        name: 'Germany',
+        feeDisplay: '€90 EUR',
+        speechFee: '90 Euros',
+        methods: ['SEPA Instant Transfer', 'Visa / Mastercard', 'Apple Pay / Google Pay'],
+        accountInfo: 'Match Pro Europe Desk — IBAN: DE89370400440532013000'
+      },
+      IN: {
+        name: 'India',
+        feeDisplay: '₹2,500 INR',
+        speechFee: '2,500 Indian Rupees',
+        methods: ['UPI (GPay / PhonePe / Paytm)', 'RuPay / Visa / Mastercard', 'NetBanking IMPS'],
+        accountInfo: 'Match Pro India Desk — UPI ID: matchpro.verify@okicici'
+      },
+      INTL: {
+        name: 'Other International Country',
+        feeDisplay: '$100 USD',
+        speechFee: '100 US Dollars',
+        methods: ['International Visa / Mastercard', 'Apple Pay / Google Pay', 'SWIFT Wire Transfer'],
+        accountInfo: 'Match Pro International Desk — SWIFT: MATCHUS33XXX'
+      }
+    };
+
+    function loadStoredProfiles() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEYS.PROFILES);
+        const parsed = raw ? JSON.parse(raw) : [];
+        return Array.isArray(parsed) ? parsed : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveStoredProfiles() {
+      try {
+        localStorage.setItem(STORAGE_KEYS.PROFILES, JSON.stringify(verifiedProfiles));
+      } catch (e) {}
+    }
+
+    function loadStoredProposals() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEYS.PROPOSALS);
+        const parsed = raw ? JSON.parse(raw) : [];
+        return Array.isArray(parsed) ? parsed : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveStoredProposals() {
+      try {
+        localStorage.setItem(STORAGE_KEYS.PROPOSALS, JSON.stringify(verifiedProposals));
+      } catch (e) {}
+    }
+
+    let verifiedProfiles = loadStoredProfiles();
+    let verifiedProposals = loadStoredProposals();
+
+    let state = {
+      currentPage: 'signup',
+      currentStep: 1,
+      voiceGuideEnabled: true,
+      spokenLang: localStorage.getItem(STORAGE_KEYS.SPOKEN_LANG) || 'en-US',
+      userIdScanned: false,
+      jobDocVerified: false,
+      fatherScanned: false,
+      motherScanned: false,
+      selectedCountry: 'PK',
+      feePaid: false,
+      activeUserId: localStorage.getItem(STORAGE_KEYS.ACTIVE_USER) || null,
+      selectedCategoryKey: 'ALL',
+      selectedDisabilityType: 'ALL',
+      activeModalProfile: null,
+      proposalTargetProfile: null
+    };
+
+    // ==================== MULTILINGUAL VOICE ENGINE ====================
+    function onSpokenLanguageChange(langCode) {
+      state.spokenLang = langCode;
+      localStorage.setItem(STORAGE_KEYS.SPOKEN_LANG, langCode);
+      const langNames = {
+        'en-US': 'English selected for speaking and voice listening.',
+        'ur-PK': 'اردو زبان منتخب کر لی گئی ہے۔ اب آواز اردو میں سنائی دے گی۔',
+        'hi-IN': 'हिन्दी भाषा चुनी गई है। अब आवाज़ हिन्दी में सुनाई देगी।',
+        'ar-SA': 'تم اختيار اللغة العربية للتحدث والاستماع الصوتي.',
+        'en-GB': 'British English selected for speaking and voice listening.'
+      };
+      speakText(langNames[langCode] || 'Language updated.', true);
+    }
+
+    function speakText(text, forceSpeak = false) {
+      if (!state.voiceGuideEnabled && !forceSpeak) return;
+      if (!('speechSynthesis' in window)) return;
+      try {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = state.spokenLang || 'en-US';
+        utterance.rate = 0.96;
+        utterance.pitch = 1.0;
+        window.speechSynthesis.speak(utterance);
+      } catch (err) {}
+    }
+
+    function toggleVoiceGuide() {
+      state.voiceGuideEnabled = !state.voiceGuideEnabled;
+      const btn = document.getElementById('voice-guide-toggle');
+      const label = document.getElementById('voice-guide-label');
+      btn.setAttribute('aria-pressed', state.voiceGuideEnabled ? 'true' : 'false');
+      if (state.voiceGuideEnabled) {
+        label.textContent = 'Voice: On';
+        speakText('Voice guide enabled.', true);
+      } else {
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+        label.textContent = 'Voice: Off';
+      }
+    }
+
+    function speakSignupPrompt() {
+      const lang = state.spokenLang;
+      if (lang.startsWith('ur')) {
+        speakText('میچ پرو سائن اپ اور شناختی کارڈ تصدیق۔ اپنا شناختی کارڈ اسکین کریں، اپنا موبائل نمبر درج کریں، اپنی اور مطلوبہ شریکِ حیات کی معذوری کی قسم منتخب کریں، اور ہوم پیج میں داخل ہوں۔', true);
+      } else if (lang.startsWith('hi')) {
+        speakText('मैच प्रो साइन अप और पहचान पत्र सत्यापन। अपना पहचान पत्र स्कैन करें, मोबाइल नंबर दर्ज करें, अपनी और इच्छित जीवनसाथी की दिव्यांगता चुनें, और होम पेज पर जाएं।', true);
+      } else if (lang.startsWith('ar')) {
+        speakText('تسجيل الدخول والتحقق من الهوية في ماتش برو. امسح بطاقة الهوية، وأدخل رقم الجوال، وحدد نوع الإعاقة الخاصة بك ونوع إعاقة الشريك المطلوب.', true);
+      } else {
+        speakText('Match Pro Sign Up and ID Verification. Scan your National ID card, enter your mobile number, select your disability and desired partner disability type, and complete sign-up to enter the Home page.', true);
+      }
+    }
+
+    function speakStepGuidance(stepNum) {
+      if (stepNum === 1) {
+        speakSignupPrompt();
+      } else if (stepNum === 2) {
+        speakText('Step 2: Employment and Actual Salary Verification. Scan your stamped and signed salary slip or appointment letter matching your National ID name.', true);
+      } else if (stepNum === 3) {
+        speakText('Step 3: Parents National ID Scans, Siblings, and Property. Scan both parents ID cards and dictate siblings and property details.', true);
+      } else if (stepNum === 4) {
+        const config = countryFeeCatalog[state.selectedCountry] || countryFeeCatalog.INTL;
+        speakText(`Step 4: Country Application Fee. Your country is ${config.name}, and your fee is ${config.speechFee}. Complete sign-up to enter the Home page.`, true);
+      }
+    }
+
+    function listenAndSpeakField(inputId, promptQuestion) {
+      const inputEl = document.getElementById(inputId);
+      if (!inputEl) return;
+
+      showToast('Voice Prompt Active', promptQuestion, false);
+
+      const startRecognition = () => {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SpeechRecognition) {
+          showToast('Voice Dictation Note', 'Speech Recognition is not supported in this browser. Type directly into the box.', true);
+          inputEl.focus();
+          return;
+        }
+
+        const recognition = new SpeechRecognition();
+        recognition.lang = state.spokenLang || 'en-US';
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+
+        recognition.onresult = (event) => {
+          const transcript = event.results[0][0].transcript;
+          inputEl.value = transcript;
+          inputEl.focus();
+          showToast('Voice Captured', `Entered: ${transcript}`, false);
+          speakText(transcript, true);
+        };
+
+        recognition.onerror = () => {
+          speakText('Could not hear clearly. Please try again.', true);
+        };
+
+        recognition.start();
+      };
+
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(promptQuestion);
+        utterance.lang = state.spokenLang || 'en-US';
+        utterance.rate = 0.96;
+        utterance.onend = () => setTimeout(startRecognition, 220);
+        window.speechSynthesis.speak(utterance);
+      } else {
+        startRecognition();
+      }
+    }
+
+    // ==================== AUTO-CATEGORIZATION & MENU 2 ====================
+    function classifyProfessionCategory(position = '', sector = '') {
+      const rawTitle = (position || '').trim();
+      const text = `${rawTitle} ${sector}`.toLowerCase();
+
+      if (/(doctor|physician|surgeon|mbbs|fcps|dentist|pharmacist|nurse|medical|hospital|clinic|physiotherapist|healthcare)/.test(text)) {
+        return { key: 'medical_healthcare', icon: '🩺', label: 'Medical & Healthcare' };
+      }
+      if (/(engineer|software|developer|programmer|it |information technology|data scientist|ai |cyber|architect|web|computer|tech)/.test(text)) {
+        return { key: 'engineering_it', icon: '💻', label: 'Engineering & IT' };
+      }
+      if (/(teacher|professor|lecturer|principal|education|tutor|school|university|academic|scholar|phd)/.test(text)) {
+        return { key: 'education_teaching', icon: '🎓', label: 'Education & Teaching' };
+      }
+      if (/(lawyer|advocate|barrister|judge|magistrate|legal|attorney|law|judiciary)/.test(text)) {
+        return { key: 'law_judiciary', icon: '⚖️', label: 'Law & Judiciary' };
+      }
+      if (sector === 'government' || /(government|govt|bps-|civil servant|assistant commissioner|assistant director|officer|ministry|css|pms|federal|provincial|army|navy|air force|police)/.test(text)) {
+        return { key: 'government_service', icon: '🏛️', label: 'Government Service' };
+      }
+      if (sector === 'business' || /(business|entrepreneur|ceo|founder|trader|merchant|exporter|importer|director|real estate|owner|shop)/.test(text)) {
+        return { key: 'business_trade', icon: '💼', label: 'Business & Trade' };
+      }
+      if (rawTitle) {
+        const cleanLabel = rawTitle
+          .split(/\s+/)
+          .slice(0, 3)
+          .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+          .join(' ');
+        const normalizedKey = 'custom_' + cleanLabel.toLowerCase().replace(/[^a-z0-9]+/g, '_');
+        return { key: normalizedKey, icon: '⭐', label: cleanLabel };
+      }
+
+      return { key: 'general_verified', icon: '🛡️', label: 'Verified Professionals' };
+    }
+
+    function rebuildMenu2Categories() {
+      const listContainer = document.getElementById('menu-2-category-list');
+      if (!listContainer) return;
+
+      const categoryMap = new Map();
+      let femaleCount = 0;
+      let maleCount = 0;
+
+      verifiedProfiles.forEach(profile => {
+        if ((profile.gender || '').toLowerCase() === 'female') femaleCount += 1;
+        if ((profile.gender || '').toLowerCase() === 'male') maleCount += 1;
+
+        const cat = classifyProfessionCategory(profile.position, profile.sector);
+        profile.categoryKey = cat.key;
+        profile.categoryIcon = cat.icon;
+        profile.categoryLabel = cat.label;
+
+        if (!categoryMap.has(cat.key)) {
+          categoryMap.set(cat.key, { ...cat, count: 0 });
+        }
+        categoryMap.get(cat.key).count += 1;
+      });
+
+      const items = [
+        { key: 'ALL', icon: '📂', label: `All Categories (${verifiedProfiles.length})` },
+        { key: 'GENDER_FEMALE', icon: '👰', label: `Bride / Female Profiles (${femaleCount})` },
+        { key: 'GENDER_MALE', icon: '🤵', label: `Groom / Male Profiles (${maleCount})` }
+      ];
+
+      categoryMap.forEach(cat => {
+        items.push({ key: cat.key, icon: cat.icon, label: `${cat.label} (${cat.count})` });
+      });
+
+      listContainer.innerHTML = items.map(item => {
+        const isSelected = state.selectedCategoryKey === item.key;
+        return `
+          <button
+            type="button"
+            onclick="selectHomeCategory('${item.key}', '${item.icon} ${item.label.replace(/'/g, "\\'")}')"
+            class="w-full text-left px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition ${isSelected ? 'bg-maroon text-white' : 'text-stone-800 hover:bg-gold-soft'}"
+          >
+            <span aria-hidden="true">${item.icon}</span>
+            <span class="truncate">${item.label}</span>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function selectHomeCategory(categoryKey, displayLabel) {
+      state.selectedCategoryKey = categoryKey;
+      document.getElementById('menu-2-label').textContent = displayLabel;
+      rebuildMenu2Categories();
+      closeHomeMenus();
+      const results = getFilteredProfiles();
+      renderProfiles(results);
+      speakText(`${displayLabel}. ${results.length} profile${results.length === 1 ? '' : 's'} shown.`, true);
+    }
+
+    function onDisabilityFilterChange(disabilityVal) {
+      state.selectedDisabilityType = disabilityVal || 'ALL';
+      closeHomeMenus();
+      const results = getFilteredProfiles();
+      renderProfiles(results);
+      const label = state.selectedDisabilityType === 'ALL' ? 'All Disability Types' : state.selectedDisabilityType;
+      speakText(`Disability filter set to ${label}. ${results.length} profile${results.length === 1 ? '' : 's'} shown.`, true);
+    }
+
+    function toggleHomeMenu(menuNum) {
+      const m1 = document.getElementById('menu-1-dropdown');
+      const m2 = document.getElementById('menu-2-dropdown');
+      const b1 = document.getElementById('menu-1-btn');
+      const b2 = document.getElementById('menu-2-btn');
+
+      if (menuNum === 1) {
+        const open = m1.classList.contains('hidden');
+        m2.classList.add('hidden');
+        b2.setAttribute('aria-expanded', 'false');
+        m1.classList.toggle('hidden', !open);
+        b1.setAttribute('aria-expanded', open ? 'true' : 'false');
+      } else {
+        const open = m2.classList.contains('hidden');
+        m1.classList.add('hidden');
+        b1.setAttribute('aria-expanded', 'false');
+        m2.classList.toggle('hidden', !open);
+        b2.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+    }
+
+    function closeHomeMenus() {
+      document.getElementById('menu-1-dropdown')?.classList.add('hidden');
+      document.getElementById('menu-2-dropdown')?.classList.add('hidden');
+      document.getElementById('menu-1-btn')?.setAttribute('aria-expanded', 'false');
+      document.getElementById('menu-2-btn')?.setAttribute('aria-expanded', 'false');
+    }
+
+    function getFilteredProfiles() {
+      const searchQuery = (document.getElementById('profile-search-input')?.value || '').trim().toLowerCase();
+      const categoryFilter = state.selectedCategoryKey || 'ALL';
+      const disabilityFilter = state.selectedDisabilityType || 'ALL';
+
+      return verifiedProfiles.filter(profile => {
+        const cat = classifyProfessionCategory(profile.position, profile.sector);
+        if (categoryFilter === 'GENDER_FEMALE' && (profile.gender || '').toLowerCase() !== 'female') return false;
+        if (categoryFilter === 'GENDER_MALE' && (profile.gender || '').toLowerCase() !== 'male') return false;
+        if (categoryFilter !== 'ALL' && categoryFilter !== 'GENDER_FEMALE' && categoryFilter !== 'GENDER_MALE' && cat.key !== categoryFilter) return false;
+
+        if (disabilityFilter !== 'ALL') {
+          const ownDis = (profile.ownDisabilityType || '').toLowerCase();
+          const partnerDis = (profile.partnerDisabilityType || '').toLowerCase();
+          const targetDis = disabilityFilter.toLowerCase();
+          if (!ownDis.includes(targetDis) && !partnerDis.includes(targetDis)) return false;
+        }
+
+        if (searchQuery) {
+          const blob = [
+            profile.name,
+            profile.position,
+            profile.organization,
+            profile.city,
+            profile.countryName,
+            profile.education,
+            profile.salary,
+            profile.maritalStatus,
+            profile.ownDisabilityType,
+            profile.ownDisabilityNotes,
+            profile.partnerDisabilityType,
+            profile.partnerDisabilityNotes,
+            cat.label
+          ].join(' ').toLowerCase();
+          if (!blob.includes(searchQuery)) return false;
+        }
+
+        return true;
+      });
+    }
+
+    function applySearchAndFilters() {
+      renderProfiles(getFilteredProfiles());
+    }
+
+    function speakSearchQuery() {
+      const inputEl = document.getElementById('profile-search-input');
+      const promptMsg = 'Speak a profession, disability type, city, or country to search.';
+      showToast('Voice Search', promptMsg, false);
+
+      const startRec = () => {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SpeechRecognition) {
+          inputEl.focus();
+          return;
+        }
+        const recognition = new SpeechRecognition();
+        recognition.lang = state.spokenLang || 'en-US';
+        recognition.onresult = (event) => {
+          const transcript = event.results[0][0].transcript;
+          inputEl.value = transcript;
+          const results = getFilteredProfiles();
+          renderProfiles(results);
+          speakText(`${transcript}. ${results.length} matching profiles.`, true);
+        };
+        recognition.start();
+      };
+
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(promptMsg);
+        u.lang = state.spokenLang || 'en-US';
+        u.onend = () => setTimeout(startRec, 200);
+        window.speechSynthesis.speak(u);
+      } else {
+        startRec();
+      }
+    }
+
+    // ==================== NAVIGATION & SIGN UP FLOW ====================
+    function navigateTo(page) {
+      closeHomeMenus();
+      state.currentPage = page;
+      document.querySelectorAll('.page-section').forEach(sec => sec.classList.add('hidden'));
+      document.getElementById(`page-${page}`)?.classList.remove('hidden');
+
+      if (page === 'home') {
+        rebuildMenu2Categories();
+        updateProposalBadges();
+        renderProfiles(getFilteredProfiles());
+      } else if (page === 'proposals') {
+        renderProposalsPage();
+      } else if (page === 'signup') {
+        speakStepGuidance(state.currentStep);
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function openSubView(subPage) {
+      navigateTo(subPage);
+    }
+
+    function backToSignupScreen() {
+      navigateTo('signup');
+    }
+
+    function handleBrandHeaderClick() {
+      if (state.currentPage === 'signup') {
+        speakSignupPrompt();
+      } else {
+        navigateTo('home');
+      }
+    }
+
+    function enterHomeAsVerifiedOrDemo() {
+      if (!state.activeUserId && verifiedProfiles.length > 0) {
+        state.activeUserId = verifiedProfiles[0].id;
+        localStorage.setItem(STORAGE_KEYS.ACTIVE_USER, state.activeUserId);
+      }
+      navigateTo('home');
+      speakText('Home page opened.', true);
+    }
+
+    function goToStep(stepNum) {
+      state.currentStep = stepNum;
+      document.querySelectorAll('.wizard-step').forEach(el => el.classList.add('hidden'));
+      document.getElementById(`wizard-step-${stepNum}`)?.classList.remove('hidden');
+
+      [1, 2, 3, 4].forEach(num => {
+        const tab = document.getElementById(`step-tab-${num}`);
+        const badge = tab.querySelector('span:first-child');
+        const isSelected = num === stepNum;
+        tab.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+        if (isSelected) {
+          tab.classList.add('bg-maroon', 'text-white');
+          tab.classList.remove('text-stone-600', 'hover:bg-maroon-soft');
+          badge.classList.add('bg-gold', 'text-maroon-dark');
+          badge.classList.remove('bg-stone-200', 'text-stone-700');
+        } else {
+          tab.classList.remove('bg-maroon', 'text-white');
+          tab.classList.add('text-stone-600', 'hover:bg-maroon-soft');
+          badge.classList.remove('bg-gold', 'text-maroon-dark');
+          badge.classList.add('bg-stone-200', 'text-stone-700');
+        }
+      });
+      speakStepGuidance(stepNum);
+    }
+
+    // ==================== STEP 1–4 SIMULATION & PUBLISH ====================
+    function simulateUserIdScan(presetType) {
+      const beam = document.getElementById('user-id-beam');
+      beam.classList.remove('hidden');
+      showToast('Scanning National ID Card', 'Extracting personal, civil marriage, job, and property records.');
+
+      setTimeout(() => {
+        beam.classList.add('hidden');
+        state.userIdScanned = true;
+
+        if (presetType === 'gov') {
+          document.getElementById('reg-fullname').value = 'Omar Farooq Sardar';
+          document.getElementById('reg-cnic').value = '35302-7482910-1';
+          document.getElementById('reg-dob').value = '14 August 1996 (29 Years)';
+          document.getElementById('reg-gender').value = 'Male';
+          document.getElementById('reg-marital').value = 'Never Married (0 Prior Marriages)';
+          document.getElementById('reg-id-job').value = 'Government Officer (BPS-17 — Linked on ID)';
+          document.getElementById('reg-id-property').value = '10 Marla Residential Plot (Registered on ID)';
+          document.getElementById('reg-city').value = 'Lahore, Punjab';
+          document.getElementById('reg-country-name').value = 'Pakistan';
+          applyCountryFeeUI('PK', false);
+
+          document.getElementById('job-sector').value = 'government';
+          document.getElementById('job-title').value = 'Assistant Director (BPS-17)';
+          document.getElementById('job-company').value = 'Government of Punjab';
+          document.getElementById('job-salary').value = 'PKR 195,000';
+          document.getElementById('reg-education').value = 'MPA Public Administration';
+        } else if (presetType === 'medical') {
+          document.getElementById('reg-fullname').value = 'Dr. Ayesha Tariq Mahmood';
+          document.getElementById('reg-cnic').value = '35202-9182736-4';
+          document.getElementById('reg-dob').value = '22 March 1998 (28 Years)';
+          document.getElementById('reg-gender').value = 'Female';
+          document.getElementById('reg-marital').value = 'Never Married (0 Prior Marriages)';
+          document.getElementById('reg-id-job').value = 'Private Sector (Verify Document in Step 2)';
+          document.getElementById('reg-id-property').value = '1 Kanal Family Residence (Islamabad)';
+          document.getElementById('reg-city').value = 'Islamabad';
+          document.getElementById('reg-country-name').value = 'Pakistan';
+          applyCountryFeeUI('PK', false);
+
+          document.getElementById('job-sector').value = 'private';
+          document.getElementById('job-title').value = 'Consultant Medical Doctor';
+          document.getElementById('job-company').value = 'Shifa International Hospital';
+          document.getElementById('job-salary').value = 'PKR 280,000';
+          document.getElementById('reg-education').value = 'MBBS, FCPS';
+        } else {
+          document.getElementById('reg-fullname').value = 'Zainab Siddiqui';
+          document.getElementById('reg-cnic').value = 'US-ID-8492014';
+          document.getElementById('reg-dob').value = '09 November 1997 (28 Years)';
+          document.getElementById('reg-gender').value = 'Female';
+          document.getElementById('reg-marital').value = 'Never Married (0 Prior Marriages)';
+          document.getElementById('reg-id-job').value = 'Private Corporate (Verify Document in Step 2)';
+          document.getElementById('reg-id-property').value = 'Townhouse Apartment (Austin, TX)';
+          document.getElementById('reg-city').value = 'Austin, Texas';
+          document.getElementById('reg-country-name').value = 'United States';
+          applyCountryFeeUI('US', false);
+
+          document.getElementById('job-sector').value = 'private';
+          document.getElementById('job-title').value = 'Senior Software Engineer';
+          document.getElementById('job-company').value = 'CloudBridge Systems Inc.';
+          document.getElementById('job-salary').value = '$8,200 USD';
+          document.getElementById('reg-education').value = 'MS Computer Science';
+        }
+
+        const badge = document.getElementById('id-scan-badge');
+        badge.textContent = '✓ National ID Verified';
+        badge.className = 'px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300';
+
+        readExtractedIdSummary();
+      }, 900);
+    }
+
+    function readExtractedIdSummary() {
+      const name = document.getElementById('reg-fullname').value;
+      if (!name) {
+        speakText('No National ID scanned yet.', true);
+        return;
+      }
+      const marital = document.getElementById('reg-marital').value;
+      const country = document.getElementById('reg-country-name').value;
+      speakText(`ID verified. Name: ${name}. Country: ${country}. Marital status: ${marital}.`, true);
+    }
+
+    function sendDemoOtp() {
+      const mobile = document.getElementById('reg-mobile').value.trim();
+      if (!mobile) {
+        document.getElementById('reg-mobile').value = state.selectedCountry === 'US' ? '+1 (512) 849-2014' : '+92 300 7482910';
+      }
+      const demoCode = Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('reg-otp').value = demoCode;
+      document.getElementById('otp-verified-tag').classList.remove('hidden');
+      showToast(`Mobile OTP Verified (${demoCode})`, `Verification code ${demoCode} confirmed.`);
+    }
+
+    function simulateJobDocScan(isValid) {
+      const idName = document.getElementById('reg-fullname').value || 'Applicant';
+      const beam = document.getElementById('job-doc-beam');
+      beam.classList.remove('hidden');
+
+      setTimeout(() => {
+        beam.classList.add('hidden');
+        const badge = document.getElementById('job-doc-badge');
+        const nameCheck = document.getElementById('check-name-match');
+        const sealCheck = document.getElementById('check-seal-sign');
+        const salCheck = document.getElementById('check-salary-auth');
+
+        if (isValid) {
+          state.jobDocVerified = true;
+          if (!document.getElementById('job-title').value) {
+            document.getElementById('job-title').value = 'Senior Product Manager';
+            document.getElementById('job-company').value = 'Global FinTech Corp';
+            document.getElementById('job-salary').value = 'PKR 340,000';
+          }
+          document.getElementById('job-doc-ref').value = `Verified Name Match: ${idName} | Official Stamp & Signature Confirmed`;
+          nameCheck.textContent = '✓ 100% Legal Name Match';
+          nameCheck.className = 'font-bold text-emerald-700';
+          sealCheck.textContent = '✓ Stamp & Signature Valid';
+          sealCheck.className = 'font-bold text-emerald-700';
+          salCheck.textContent = '✓ Actual Salary Confirmed';
+          salCheck.className = 'font-bold text-emerald-700';
+          badge.textContent = '✓ Employment & Salary Verified';
+          badge.className = 'px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300';
+          showToast('Employment Verified', `Document matches ${idName} with official stamp and salary.`);
+        } else {
+          state.jobDocVerified = false;
+          document.getElementById('job-doc-ref').value = 'REJECTED: Name mismatch or missing official stamp/signature.';
+          nameCheck.textContent = '✕ Name Mismatch';
+          nameCheck.className = 'font-bold text-red-600';
+          sealCheck.textContent = '✕ Missing Official Stamp';
+          sealCheck.className = 'font-bold text-red-600';
+          salCheck.textContent = '✕ Unverified';
+          salCheck.className = 'font-bold text-red-600';
+          badge.textContent = '✕ Document Rejected';
+          badge.className = 'px-3.5 py-1.5 rounded-full text-xs font-bold bg-red-100 text-red-800 border border-red-300';
+          showToast('Document Rejected', 'Document must match National ID name and include an official stamp and signature.');
+        }
+      }, 900);
+    }
+
+    function scanParentId(parent) {
+      if (parent === 'father') {
+        state.fatherScanned = true;
+        document.getElementById('father-name').value = 'Muhammad Farooq Sardar (ID Verified)';
+        const status = document.getElementById('father-id-status');
+        status.textContent = '✓ ID Verified';
+        status.className = 'text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800';
+        showToast("Father's ID Verified", "Father's National ID scanned.");
+      } else {
+        state.motherScanned = true;
+        document.getElementById('mother-name').value = 'Khalida Parveen Sardar (ID Verified)';
+        const status = document.getElementById('mother-id-status');
+        status.textContent = '✓ ID Verified';
+        status.className = 'text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800';
+        showToast("Mother's ID Verified", "Mother's National ID scanned.");
+      }
+    }
+
+    function detectApplicantCountry() {
+      try {
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+        const lang = (navigator.language || '').toUpperCase();
+        if (tz.includes('Karachi') || lang.endsWith('-PK')) return 'PK';
+        if (tz.includes('America/New_York') || tz.includes('America/Chicago') || tz.includes('America/Los_Angeles') || lang.endsWith('-US')) return 'US';
+        if (tz.includes('Europe/London') || lang.endsWith('-GB')) return 'GB';
+        if (tz.includes('Asia/Dubai') || lang.endsWith('-AE')) return 'AE';
+        if (tz.includes('Asia/Riyadh') || lang.endsWith('-SA')) return 'SA';
+        if (tz.includes('America/Toronto') || lang.endsWith('-CA')) return 'CA';
+        if (tz.includes('Australia/') || lang.endsWith('-AU')) return 'AU';
+        if (tz.includes('Europe/Berlin') || lang.endsWith('-DE')) return 'DE';
+        if (tz.includes('Asia/Kolkata') || lang.endsWith('-IN')) return 'IN';
+      } catch (e) {}
+      return 'PK';
+    }
+
+    function applyCountryFeeUI(countryCode, announceAudio = false) {
+      const config = countryFeeCatalog[countryCode] || countryFeeCatalog.INTL;
+      state.selectedCountry = countryCode;
+      state.feePaid = false;
+
+      const selectEl = document.getElementById('applicant-country-select');
+      if (selectEl) selectEl.value = countryCode;
+
+      document.getElementById('detected-country-pill').textContent = config.name;
+      document.getElementById('single-country-fee-amount').textContent = config.feeDisplay;
+      document.getElementById('single-country-fee-note').textContent = `Applicable exclusively to applicants residing in ${config.name}.`;
+      document.getElementById('payment-region-label').textContent = config.name;
+      document.getElementById('merchant-account-info').textContent = config.accountInfo;
+      document.getElementById('confirm-btn-fee-label').textContent = config.feeDisplay;
+
+      document.getElementById('payment-method-select').innerHTML = config.methods.map(m => `<option value="${m}">${m}</option>`).join('');
+
+      const badge = document.getElementById('fee-paid-badge');
+      badge.textContent = 'Payment Pending';
+      badge.className = 'px-3.5 py-1.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-300';
+
+      if (announceAudio) {
+        speakText(`${config.name}: ${config.speechFee}.`, true);
+      }
+    }
+
+    function onCountryChange(newCode) {
+      applyCountryFeeUI(newCode, true);
+    }
+
+    function confirmFeePayment() {
+      const config = countryFeeCatalog[state.selectedCountry] || countryFeeCatalog.INTL;
+      const txInput = document.getElementById('payment-tx-id');
+      if (!txInput.value.trim()) {
+        txInput.value = 'MP-' + state.selectedCountry + '-' + Math.floor(100000 + Math.random() * 900000);
+      }
+      state.feePaid = true;
+
+      const badge = document.getElementById('fee-paid-badge');
+      badge.textContent = `✓ ${config.feeDisplay} Paid`;
+      badge.className = 'px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300';
+
+      showToast('Fee Verified', `${config.feeDisplay} confirmed for ${config.name}.`);
+    }
+
+    function publishVerifiedProfile() {
+      if (!state.feePaid) {
+        const config = countryFeeCatalog[state.selectedCountry] || countryFeeCatalog.INTL;
+        showToast('Fee Required', `Confirm ${config.feeDisplay} fee first.`);
+        return;
+      }
+
+      const config = countryFeeCatalog[state.selectedCountry] || countryFeeCatalog.INTL;
+      const name = document.getElementById('reg-fullname').value || 'Omar Farooq Sardar';
+      const dobRaw = document.getElementById('reg-dob').value || '29 Years';
+      const ageMatch = dobRaw.match(/\(([^)]+)\)/);
+      const age = ageMatch ? ageMatch[1] : '29 Years';
+      const gender = document.getElementById('reg-gender').value || 'Male';
+      const city = document.getElementById('reg-city').value || 'Lahore';
+      const countryName = document.getElementById('reg-country-name').value || config.name;
+      const marital = document.getElementById('reg-marital').value || 'Never Married (0 Prior Marriages)';
+      const sector = document.getElementById('job-sector').value;
+      const position = document.getElementById('job-title').value.trim() || 'Assistant Director (BPS-17)';
+      const org = document.getElementById('job-company').value.trim() || 'Government Department';
+      const salary = document.getElementById('job-salary').value.trim() || 'PKR 195,000';
+      const education = document.getElementById('reg-education').value.trim() || 'Masters Degree';
+      const mobile = document.getElementById('reg-mobile').value.trim() || '+92 300 7482910';
+
+      const ownDisabilityType = document.getElementById('reg-own-disability-type').value;
+      const ownDisabilityNotes = document.getElementById('reg-own-disability-notes').value.trim();
+      const partnerDisabilityType = document.getElementById('reg-partner-disability-type').value;
+      const partnerDisabilityNotes = document.getElementById('reg-partner-disability-notes').value.trim();
+
+      const fatherName = `${document.getElementById('father-name').value || 'Father ID Verified'} (${document.getElementById('father-job').value || 'Verified'})`;
+      const motherName = `${document.getElementById('mother-name').value || 'Mother ID Verified'} (${document.getElementById('mother-job').value || 'Verified'})`;
+      const siblings = [
+        document.getElementById('brothers-count').value,
+        document.getElementById('sisters-count').value,
+        document.getElementById('siblings-notes').value
+      ].filter(Boolean).join(', ') || 'Family verified';
+      const property = document.getElementById('property-summary').value || document.getElementById('reg-id-property').value || 'Verified on file';
+
+      const autoCat = classifyProfessionCategory(position, sector);
+
+      const newProfile = {
+        id: 'MP-USER-' + Date.now(),
+        name,
+        gender,
+        age,
+        city,
+        countryName,
+        sector,
+        position,
+        organization: org,
+        education,
+        salary: `${salary} / month`,
+        maritalStatus: marital,
+        mobile,
+        ownDisabilityType,
+        ownDisabilityNotes,
+        partnerDisabilityType,
+        partnerDisabilityNotes,
+        fatherName,
+        motherName,
+        siblings,
+        property,
+        categoryKey: autoCat.key,
+        categoryIcon: autoCat.icon,
+        categoryLabel: autoCat.label,
+        docVerifiedBy: `ID + Salary Document + Parents' IDs + Fee (${config.feeDisplay}) Verified`
+      };
+
+      verifiedProfiles.unshift(newProfile);
+      saveStoredProfiles();
+
+      state.activeUserId = newProfile.id;
+      localStorage.setItem(STORAGE_KEYS.ACTIVE_USER, newProfile.id);
+
+      state.feePaid = false;
+      state.currentStep = 1;
+      goToStep(1);
+
+      showToast('Sign Up Complete', `${name} logged in and published to Home.`);
+      navigateTo('home');
+    }
+
+    // ==================== PROPOSALS & CONTACT UNLOCK ====================
+    function getActiveVerifiedUser() {
+      if (!state.activeUserId) return null;
+      return verifiedProfiles.find(p => p.id === state.activeUserId) || null;
+    }
+
+    function initiateProposalRequest(targetProfileId) {
+      const targetProfile = verifiedProfiles.find(p => p.id === targetProfileId);
+      if (!targetProfile) return;
+
+      const activeUser = getActiveVerifiedUser();
+      if (!activeUser) {
+        openVerificationGateModal();
+        return;
+      }
+
+      if (activeUser.id === targetProfile.id) {
+        showToast('Own Profile', 'This is your own active verified profile.');
+        return;
+      }
+
+      const existing = verifiedProposals.find(
+        prop =>
+          (prop.senderId === activeUser.id && prop.recipientId === targetProfile.id) ||
+          (prop.senderId === targetProfile.id && prop.recipientId === activeUser.id)
+      );
+
+      if (existing) {
+        navigateTo('proposals');
+        return;
+      }
+
+      state.proposalTargetProfile = targetProfile;
+      document.getElementById('proposal-sender-label').textContent = `${activeUser.name} (${activeUser.position})`;
+      document.getElementById('proposal-recipient-label').textContent = `${targetProfile.name} (${targetProfile.position})`;
+      document.getElementById('proposal-message-input').value = `Greetings ${targetProfile.name}, I am ${activeUser.name}. Our family reviewed your verified profile on Match Pro and would like to connect.`;
+      document.getElementById('send-proposal-modal').classList.remove('hidden');
+    }
+
+    function openVerificationGateModal() {
+      document.getElementById('verification-gate-modal').classList.remove('hidden');
+      speakText('Verification Required. Only registered members with a verified ID profile can contact or send proposals to members.', true);
+    }
+
+    function closeVerificationGateModal() {
+      document.getElementById('verification-gate-modal').classList.add('hidden');
+    }
+
+    function closeSendProposalModal() {
+      document.getElementById('send-proposal-modal').classList.add('hidden');
+      state.proposalTargetProfile = null;
+    }
+
+    function submitVerifiedProposal() {
+      const sender = getActiveVerifiedUser();
+      const recipient = state.proposalTargetProfile;
+      if (!sender || !recipient) return;
+
+      const message = document.getElementById('proposal-message-input').value.trim();
+
+      verifiedProposals.unshift({
+        id: 'PROP-' + Date.now(),
+        senderId: sender.id,
+        senderName: sender.name,
+        senderPosition: `${sender.position} (${sender.organization})`,
+        senderCity: `${sender.city}, ${sender.countryName}`,
+        senderMobile: sender.mobile,
+        senderFather: sender.fatherName,
+        recipientId: recipient.id,
+        recipientName: recipient.name,
+        recipientPosition: `${recipient.position} (${recipient.organization})`,
+        recipientCity: `${recipient.city}, ${recipient.countryName}`,
+        recipientMobile: recipient.mobile,
+        recipientFather: recipient.fatherName,
+        message,
+        status: 'pending',
+        createdAt: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+      });
+
+      saveStoredProposals();
+      updateProposalBadges();
+      closeSendProposalModal();
+      renderProfiles(getFilteredProfiles());
+      showToast('Proposal Sent', `Verified proposal sent to ${recipient.name}.`);
+    }
+
+    function acceptProposal(proposalId) {
+      const prop = verifiedProposals.find(p => p.id === proposalId);
+      if (!prop) return;
+      prop.status = 'accepted';
+      saveStoredProposals();
+      updateProposalBadges();
+      renderProposalsPage();
+      renderProfiles(getFilteredProfiles());
+
+      const activeUser = getActiveVerifiedUser();
+      const unlockedPhone = activeUser && activeUser.id === prop.recipientId ? prop.senderMobile : prop.recipientMobile;
+      const partnerName = activeUser && activeUser.id === prop.recipientId ? prop.senderName : prop.recipientName;
+
+      showToast('Contact Unlocked', `${partnerName}: ${unlockedPhone}`);
+      speakText(`Match accepted. Contact number for ${partnerName} is ${unlockedPhone}.`, true);
+    }
+
+    function declineProposal(proposalId) {
+      const prop = verifiedProposals.find(p => p.id === proposalId);
+      if (!prop) return;
+      prop.status = 'declined';
+      saveStoredProposals();
+      updateProposalBadges();
+      renderProposalsPage();
+    }
+
+    function updateProposalBadges() {
+      const activeUser = getActiveVerifiedUser();
+      let count = 0;
+      if (activeUser) {
+        count = verifiedProposals.filter(
+          p => (p.senderId === activeUser.id || p.recipientId === activeUser.id) && p.status !== 'declined'
+        ).length;
+      }
+      const badge = document.getElementById('nav-proposal-badge');
+      if (badge) badge.textContent = count;
+    }
+
+    function renderProposalsPage() {
+      const container = document.getElementById('proposals-content-area');
+      const activeUser = getActiveVerifiedUser();
+
+      if (!activeUser) {
+        container.innerHTML = `
+          <div class="bg-white rounded-3xl p-8 text-center border-2 border-dashed border-gold space-y-4">
+            <h2 class="brand-serif text-2xl font-bold text-maroon">Verified Profile Required</h2>
+            <p class="text-sm text-stone-600 max-w-md mx-auto">Complete ID verification and sign-up to send or receive proposals.</p>
+            <button type="button" onclick="backToSignupScreen()" class="bg-maroon text-white font-bold text-sm px-6 py-3 rounded-xl">
+              Go to Sign Up &amp; ID Verification →
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      const incoming = verifiedProposals.filter(p => p.recipientId === activeUser.id);
+      const outgoing = verifiedProposals.filter(p => p.senderId === activeUser.id);
+
+      const renderCard = (prop, dir) => {
+        const isIncoming = dir === 'incoming';
+        const otherName = isIncoming ? prop.senderName : prop.recipientName;
+        const otherPos = isIncoming ? prop.senderPosition : prop.recipientPosition;
+        const otherCity = isIncoming ? prop.senderCity : prop.recipientCity;
+        const otherFather = isIncoming ? prop.senderFather : prop.recipientFather;
+        const unlockedPhone = isIncoming ? prop.senderMobile : prop.recipientMobile;
+
+        let actions = '';
+        if (prop.status === 'accepted') {
+          actions = `
+            <div class="bg-emerald-50 border border-emerald-400 rounded-2xl p-4 space-y-1">
+              <p class="text-xs font-extrabold text-emerald-800">🔓 Unlocked Contact: ${unlockedPhone}</p>
+              <p class="text-xs text-stone-700">Guardian: ${otherFather}</p>
+            </div>
+          `;
+        } else if (isIncoming && prop.status === 'pending') {
+          actions = `
+            <div class="flex flex-wrap gap-2.5">
+              <button type="button" onclick="acceptProposal('${prop.id}')" class="bg-emerald-700 text-white font-extrabold text-xs px-4 py-2.5 rounded-xl">
+                ✓ Accept Match &amp; Share Contact
+              </button>
+              <button type="button" onclick="declineProposal('${prop.id}')" class="bg-stone-200 text-stone-800 font-bold text-xs px-4 py-2.5 rounded-xl">
+                Decline
+              </button>
+            </div>
+          `;
+        }
+
+        return `
+          <article class="bg-white rounded-3xl border border-ivory-border p-6 shadow-sm space-y-3">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <h3 class="text-lg font-extrabold text-maroon">${otherName}</h3>
+                <p class="text-xs text-stone-600">${otherPos} • ${otherCity}</p>
+              </div>
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-gold-soft text-maroon-dark border border-gold">${prop.status}</span>
+            </div>
+            <p class="text-sm bg-ivory p-3.5 rounded-xl border border-ivory-border">"${prop.message}"</p>
+            ${actions}
+          </article>
+        `;
+      };
+
+      container.innerHTML = `
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="space-y-4">
+            <h2 class="brand-serif text-xl font-bold text-maroon">Received (${incoming.length})</h2>
+            ${incoming.length ? incoming.map(p => renderCard(p, 'incoming')).join('') : '<div class="bg-white rounded-2xl p-6 border border-ivory-border text-sm text-stone-500">No incoming proposals yet.</div>'}
+          </div>
+          <div class="space-y-4">
+            <h2 class="brand-serif text-xl font-bold text-maroon">Sent (${outgoing.length})</h2>
+            ${outgoing.length ? outgoing.map(p => renderCard(p, 'outgoing')).join('') : '<div class="bg-white rounded-2xl p-6 border border-ivory-border text-sm text-stone-500">No sent proposals yet.</div>'}
+          </div>
+        </div>
+      `;
+    }
+
+    function readProposalsAloud() {
+      const activeUser = getActiveVerifiedUser();
+      if (!activeUser) {
+        speakText('Please complete sign up and ID verification first.', true);
+        return;
+      }
+      const incoming = verifiedProposals.filter(p => p.recipientId === activeUser.id).length;
+      const outgoing = verifiedProposals.filter(p => p.senderId === activeUser.id).length;
+      speakText(`Inbox for ${activeUser.name}. ${incoming} received and ${outgoing} sent proposals.`, true);
+    }
+
+    // ==================== HOME PROFILES & MODAL ====================
+    function renderProfiles(listToRender = verifiedProfiles) {
+      const grid = document.getElementById('profiles-grid');
+      if (!grid) return;
+
+      if (verifiedProfiles.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full bg-white rounded-3xl p-10 text-center border-2 border-dashed border-ivory-border space-y-3">
+            <h2 class="text-lg font-extrabold text-maroon">0 Verified Profiles Published</h2>
+            <p class="text-sm text-stone-600 max-w-md mx-auto">
+              Verified member profiles appear here after ID verification and sign-up.
+            </p>
+            <button type="button" onclick="backToSignupScreen()" class="bg-maroon text-white font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl">
+              Go to Sign Up &amp; ID Scan
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      if (listToRender.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full bg-white rounded-3xl p-8 text-center border border-ivory-border space-y-2">
+            <h2 class="text-base font-extrabold text-maroon">No Matching Profiles</h2>
+            <p class="text-xs text-stone-600">Try another search term, category, or disability filter.</p>
+          </div>
+        `;
+        return;
+      }
+
+      const activeUser = getActiveVerifiedUser();
+
+      grid.innerHTML = listToRender.map(profile => {
+        const cat = classifyProfessionCategory(profile.position, profile.sector);
+        const existingProposal = activeUser
+          ? verifiedProposals.find(
+              p =>
+                (p.senderId === activeUser.id && p.recipientId === profile.id) ||
+                (p.senderId === profile.id && p.recipientId === activeUser.id)
+            )
+          : null;
+
+        let proposalBtn = '';
+        if (activeUser && activeUser.id === profile.id) {
+          proposalBtn = `<span class="w-full py-3 rounded-xl bg-maroon-soft text-maroon font-extrabold text-xs sm:text-sm text-center block">✓ Your Active Profile</span>`;
+        } else if (existingProposal && existingProposal.status === 'accepted') {
+          proposalBtn = `<button type="button" onclick="navigateTo('proposals')" class="w-full py-3 rounded-xl bg-emerald-700 text-white font-extrabold text-xs sm:text-sm">🔓 Contact Unlocked — Open Inbox</button>`;
+        } else if (existingProposal) {
+          proposalBtn = `<button type="button" onclick="navigateTo('proposals')" class="w-full py-3 rounded-xl bg-gold-soft text-maroon-dark border border-gold font-extrabold text-xs sm:text-sm">⏳ Proposal Pending — Open Inbox</button>`;
+        } else {
+          proposalBtn = `<button type="button" onclick="initiateProposalRequest('${profile.id}')" class="w-full py-3 rounded-xl bg-gold hover:bg-gold-dark text-maroon-dark font-extrabold text-xs sm:text-sm shadow-sm transition">💌 Send Proposal / Request Contact</button>`;
+        }
+
+        return `
+          <article class="bg-white rounded-3xl border-2 border-gold/80 shadow-md p-6 flex flex-col justify-between space-y-4">
+            <div class="space-y-3">
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <span class="inline-flex items-center gap-1 bg-gold-soft border border-gold/50 text-maroon-dark text-[11px] font-extrabold px-2.5 py-0.5 rounded-full mb-1">
+                    <span>${cat.icon}</span>
+                    <span>${cat.label}</span>
+                  </span>
+                  <h2 class="text-xl font-extrabold text-maroon">${profile.name}</h2>
+                  <p class="text-xs text-stone-600">${profile.gender} • ${profile.age} • ${profile.city}, ${profile.countryName}</p>
+                </div>
+                <span class="bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-bold px-3 py-1 rounded-full shrink-0">✓ Verified</span>
+              </div>
+
+              <div class="space-y-1.5 text-xs sm:text-sm bg-ivory p-4 rounded-2xl border border-ivory-border">
+                <p><strong>Profession:</strong> ${profile.position} (${profile.organization})</p>
+                <p><strong>Actual Salary:</strong> <span class="text-maroon font-extrabold">${profile.salary}</span></p>
+                <p><strong>Marital Record:</strong> <span class="text-emerald-700 font-bold">${profile.maritalStatus}</span></p>
+                <p><strong>Own Disability:</strong> <span class="font-bold text-maroon">${profile.ownDisabilityType}</span>${profile.ownDisabilityNotes ? ` — ${profile.ownDisabilityNotes}` : ''}</p>
+                <p><strong>Partner Disability Wanted:</strong> <span class="font-bold text-maroon-dark">${profile.partnerDisabilityType}</span>${profile.partnerDisabilityNotes ? ` — ${profile.partnerDisabilityNotes}` : ''}</p>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              ${proposalBtn}
+              <button type="button" onclick="openProfileModal('${profile.id}')" class="w-full py-2.5 rounded-xl bg-maroon hover:bg-maroon-light text-white font-bold text-xs sm:text-sm transition">
+                View &amp; Listen Full Dossier →
+              </button>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function openProfileModal(id) {
+      const profile = verifiedProfiles.find(p => p.id === id);
+      if (!profile) return;
+      state.activeModalProfile = profile;
+
+      document.getElementById('modal-profile-name').textContent = `${profile.name} (${profile.age})`;
+      document.getElementById('modal-profile-body').innerHTML = `
+        <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-3.5 text-xs text-emerald-900 font-bold">
+          ${profile.docVerifiedBy}
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="bg-ivory p-3.5 rounded-xl border border-ivory-border">
+            <span class="text-xs text-stone-500 block">Profession &amp; Salary</span>
+            <strong>${profile.position} — ${profile.salary}</strong>
+          </div>
+          <div class="bg-ivory p-3.5 rounded-xl border border-ivory-border">
+            <span class="text-xs text-stone-500 block">Marital Record</span>
+            <strong class="text-emerald-700">${profile.maritalStatus}</strong>
+          </div>
+          <div class="bg-ivory p-3.5 rounded-xl border border-ivory-border">
+            <span class="text-xs text-stone-500 block">Own Disability</span>
+            <strong>${profile.ownDisabilityType}${profile.ownDisabilityNotes ? ` (${profile.ownDisabilityNotes})` : ''}</strong>
+          </div>
+          <div class="bg-ivory p-3.5 rounded-xl border border-ivory-border">
+            <span class="text-xs text-stone-500 block">Desired Partner Disability</span>
+            <strong>${profile.partnerDisabilityType}${profile.partnerDisabilityNotes ? ` (${profile.partnerDisabilityNotes})` : ''}</strong>
+          </div>
+        </div>
+        <div class="bg-maroon-soft/40 p-4 rounded-2xl border border-maroon/15 space-y-1">
+          <p><strong>Father:</strong> ${profile.fatherName}</p>
+          <p><strong>Mother:</strong> ${profile.motherName}</p>
+          <p><strong>Siblings:</strong> ${profile.siblings}</p>
+          <p><strong>Property:</strong> ${profile.property}</p>
+        </div>
+      `;
+
+      document.getElementById('modal-send-proposal-btn').onclick = () => {
+        closeProfileModal();
+        initiateProposalRequest(profile.id);
+      };
+
+      document.getElementById('profile-modal').classList.remove('hidden');
+      readModalAloud();
+    }
+
+    function readModalAloud() {
+      const p = state.activeModalProfile;
+      if (!p) return;
+      speakText(`${p.name}, ${p.age}, from ${p.city}, ${p.countryName}. Profession: ${p.position}. Salary: ${p.salary}. Own disability: ${p.ownDisabilityType}. Partner disability preference: ${p.partnerDisabilityType}.`, true);
+    }
+
+    function closeProfileModal() {
+      document.getElementById('profile-modal').classList.add('hidden');
+      state.activeModalProfile = null;
+    }
+
+    // ==================== TOAST & INITIALIZATION ====================
+    let toastTimer = null;
+    function showToast(title, message, alsoSpeak = true) {
+      const toast = document.getElementById('live-toast');
+      document.getElementById('toast-title').textContent = title;
+      document.getElementById('toast-message').textContent = message;
+      toast.classList.remove('hidden');
+      if (alsoSpeak) {
+        speakText(`${title}. ${message}`);
+      }
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(hideToast, 5500);
+    }
+
+    function hideToast() {
+      document.getElementById('live-toast').classList.add('hidden');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeProfileModal();
+        closeVerificationGateModal();
+        closeSendProposalModal();
+        closeHomeMenus();
+      }
+    });
+
+    window.onload = function () {
+      const langSelect = document.getElementById('spoken-language-select');
+      if (langSelect) langSelect.value = state.spokenLang;
+
+      const detected = detectApplicantCountry();
+      applyCountryFeeUI(detected, false);
+      rebuildMenu2Categories();
+      updateProposalBadges();
+      navigateTo('signup');
+    };
+  </script>
+</body>
+</html>
